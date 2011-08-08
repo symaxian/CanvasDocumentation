@@ -1,77 +1,1422 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
+	<title>Canvas 2d Context Documentation</title>
+	<style>
 
-  <title>symaxian/CanvasDocumentation @ GitHub</title>
+blockquote {
+	border-style: solid;
+	border-width: 1px;
+	padding: 4px;
+	background-color: rgb(204, 255, 204);
+}
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #37e28b;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #c81d74; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #c81d74; }
-    h3 { text-align: center; color: #c81d74; }
-    a { color: #c81d74; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+hr {
+	width: 80%
+}
+
+td {
+	vertical-align: top;
+	padding: 4;
+}
+
+b {
+	letter-spacing: 1px;
+}
+
+.font10 {
+	font-size: 10pt;
+}
+
+.font14 {
+	font-size: 14pt;
+}
+
+.matrixCell {
+	border: 1px solid black;
+}
+
+.leftAlign{
+	text-align: center;
+}
+
+.boolean {
+	color: navy;
+}
+
+.number {
+	color: sienna;
+}
+
+.string {
+	color: green;
+}
+
+.param {
+	color: purple;
+}
+
+.type {
+	color: gray;
+}
+
+.error {
+	color: red;
+}
+
+.member {
+	color: darkorange;
+}
+
+	</style>
 </head>
 
-<body>
-  <a href="http://github.com/symaxian/CanvasDocumentation"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+<body style="font-family: sans-serif;">
 
-  <div id="container">
+<!-- Title -->
 
-    <div class="download">
-      <a href="http://github.com/symaxian/CanvasDocumentation/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/symaxian/CanvasDocumentation/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
+<h1>Canvas 2d Context Documentation <span class="font10">by <a href="http://github.com/symaxian">Jonathon Reesor</a></span></h1>
+<h6>Last Edited: Mon, Aug 22, 2011</h6>
 
-    <h1><a href="http://github.com/symaxian/CanvasDocumentation">CanvasDocumentation</a>
-      <span class="small">by <a href="http://github.com/symaxian">symaxian</a></span></h1>
+<!-- Description -->
 
-    <div class="description">
-      A single web page documenting most of the default HTML5 canvas API.
-    </div>
+<h3>Description</h3>
+<p>
+	Unofficial documentation on the default 2d rendering API for the HTML5 canvas element.
+	<br>
+	Most all information on this page comes directly from W3C's working draft of the 2d context for the canvas element.
+	<br>
+	Calling <span class="member">getContext(<span class="string">"2d"</span>)</span> on an HTMLCanvasElement returns this interface(an object) for rendering shapes, text, images, and video.
+	<br>
+	All but two of the standard 2d context members are listed on this page. One is merely a link back to the canvas object that the context is applied to, and the other is a somewhat obscure method, <span class="member">drawFocusRing()</span>.
+	<br>
+</p>
 
-    <h2>Authors</h2>
-<p>Jonathon Reesor (jonathon.reesor@gmail.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Jonathon Reesor (jonathon.reesor@gmail.com)<br/>      </p>
+<!-- Relevant Links -->
 
+<h3>Relevant Links</h3>
+<ul>
+	<li><a href="http://www.w3.org/TR/2dcontext/">HTML Canvas 2d Context - W3C Working Draft</a></li>
+	<li><a href="images/HTML5_Canvas_Cheat_Sheet.png">An Excellent HTML5 Canvas Cheat Sheet by Nihilogic</a></li>
+	<li><a href="http://www.quirksmode.org/">Quirksmode - Prime source for documentation on browser compatibilities.</a></li>
+	<li><a href="http://www.modernizr.com/">Modernizr - A great tool for detecting browser capabilities.</a></li>
+</ul>
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/symaxian/CanvasDocumentation/zipball/master">zip</a> or
-      <a href="http://github.com/symaxian/CanvasDocumentation/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/symaxian/CanvasDocumentation</pre>
-    </p>
+<!-- Table Of Contents -->
 
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/symaxian/CanvasDocumentation">symaxian/CanvasDocumentation</a>
-    </div>
+<h3>Table Of Contents</h3>
 
-  </div>
+<ol class="font14">
+	<li><a href="#styling">Styling</a></li>
+	<li><a href="#lineStyling">Line Styling</a></li>
+	<li><a href="#shadows">Shadows</a></li>
+	<li><a href="#rectangles">Rectangles</a></li>
+	<li><a href="#paths">Paths</a></li>
+	<li><a href="#text">Text</a></li>
+	<li><a href="#images">Images</a></li>
+	<li><a href="#pixelManipulation">Pixel Manipulation</a></li>
+	<li><a href="#states">Context States</a></li>
+	<li><a href="#transformations">Transformations</a></li>
+	<li><a href="#compositing">Compositing</a></li>
+	<li><a href="#drawingModel">The Drawing Model</a></li>
+</ol>
 
-  
-</body>
-</html>
+<!-- Styling -->
+
+<a name="styling"></a>
+<h2>1. Styling</h2>
+
+<a name="fillStyle"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span>, <a href="#CanvasGradient" class="type">CanvasGradient</a>, <a href="#CanvasPattern" class="type">CanvasPattern</a> context . <b>fillStyle</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li>CSS color</li>
+				<li><a href="#CanvasGradient">CanvasGradient</a></li>
+				<li><a href="#CanvasPattern">CanvasPattern</a></li>
+			</ul>
+			<li>The current style used to fill shapes.</li>
+			<li>Default value is <span class="string">"#000000"</span>.</li>
+			<br>
+			<li>On retrieval, if <span class="member">context.fillStyle</span> is:</li>
+			<ul>
+				<li>A color with an alpha value of <span class="number">1</span>, the hex representation of the color will be returned.</li>
+				<ul>
+					<li>Such as the color black will be returned as <span class="string">"#000000"</span>.</li>
+				</ul>
+				<li>A color with an alpha value less than <span class="number">1</span>, the CSS color string representation of the color will be returned.</li>
+				<ul>
+					<li>Such as the color transparent black will be returned as <span class="string">"rgba(0,0,0,0)"</span>.</li>
+				</ul>
+				<li>A CanvasGradient object, the CanvasGradient object will be returned.</li>
+				<li>A CanvasPattern object, the CanvasPattern object will be returned.</li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="strokeStyle"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span>, <a href="#CanvasGradient" class="type">CanvasGradient</a>, <a href="#CanvasPattern" class="type">CanvasPattern</a> context . <b>strokeStyle</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li>CSS color</li>
+				<li><a href="#CanvasGradient">CanvasGradient</a></li>
+				<li><a href="#CanvasPattern">CanvasPattern</a></li>
+			</ul>
+			<li>The current style used to stroke shapes.</li>
+			<li>Default value is <span class="string">"#000000"</span>.</li>
+			<br>
+			<li>On retrieval, if <span class="member">context.strokeStyle</span> is:</li>
+			<ul>
+				<li>A color with an alpha value of <span class="number">1</span>, the hex representation of the color will be returned.</li>
+				<ul>
+					<li>Such as the color black will be returned as <span class="string">"#000000"</span>.</li>
+				</ul>
+				<li>A color with an alpha value less than <span class="number">1</span>, the CSS color string representation of the color will be returned.</li>
+				<ul>
+					<li>Such as the color transparent black will be returned as <span class="string">"rgba(0,0,0,0)"</span>.</li>
+				</ul>
+				<li>A CanvasGradient object, the CanvasGradient object will be returned.</li>
+				<li>A CanvasPattern object, the CanvasPattern object will be returned.</li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="createLinearGradient()"></a>
+<blockquote>
+	<ul>
+		<li><a href="#CanvasGradient" class="type">CanvasGradient</a> context . <b>createLinearGradient(<span class="param">x1</span>, <span class="param">y1</span>, <span class="param">x2</span>, <span class="param">y2</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x1</span> - The x value of the starting point.</li>
+				<li><span class="type">Number</span> <span class="param">y1</span> - The y value of the starting point.</li>
+				<li><span class="type">Number</span> <span class="param">x2</span> - The x value of the end point.</li>
+				<li><span class="type">Number</span> <span class="param">y2</span> - The y value of the end point.</li>
+			</ul>
+			<li>Returns a <a href="#CanvasGradient" class="type">CanvasGradient</a> object holding a linear gradient between the two specified points.</li>
+			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if any numbers are not finite.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="createRadialGradient()"></a>
+<blockquote>
+	<ul>
+		<li><a href="#CanvasGradient" class="type">CanvasGradient</a> context . <b>createRadialGradient(<span class="param">x1</span>, <span class="param">y1</span>, <span class="param">r1</span>, <span class="param">x2</span>, <span class="param">y2</span>, <span class="param">r2</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x1</span> - The x value of the starting circle.</li>
+				<li><span class="type">Number</span> <span class="param">y1</span> - The y value of the starting circle.</li>
+				<li><span class="type">Number</span> <span class="param">r1</span> - The radius of the starting circle.</li>
+				<li><span class="type">Number</span> <span class="param">x2</span> - The x value of the end circle.</li>
+				<li><span class="type">Number</span> <span class="param">y2</span> - The y value of the end circle.</li>
+				<li><span class="type">Number</span> <span class="param">r2</span> - The radius of the end circle.</li>
+			</ul>
+			<li>Returns a <a href="#CanvasGradient" class="type">CanvasGradient</a> object holding a radial gradient that stretches between the two specified points.</li>
+			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if any numbers are not finite.</li>
+			<li>An <span class="error">INDEX_SIZE_ERR</span> is thrown if either radii are negative.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="createPattern()"></a>
+<blockquote>
+	<ul>
+		<li><a href="#CanvasPattern" class="type">CanvasPattern</a> context . <b>createPattern(<span class="param">image</span>, <span class="param">repetition</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">HTMLImageElement</span>, <span class="type">HTMLCanvasElement</span>, <span class="type">HTMLVideoElement</span> <span class="param">image</span> - What image to use as the pattern.</li>
+				<li><span class="type">String</span> <span class="param">repetition</span> - How to repeat the pattern, accepts either <span class="string">"repeat"</span>, <span class="string">"repeat-x"</span>, <span class="string">"repeat-y"</span>, or <span class="string">"no-repeat"</span>.</li>
+			</ul>
+			<li>The pattern can be repeated in the x direction with a repetition attribute of <span class="string">"repeat-x"</span>, the y direction with a repetition argument of <span class="string">"repeat-y"</span>, in both dimensions with <span class="string">"repeat"</span>, or in neither with <span class="string">"no-repeat"</span>.</li>
+			<li>If the repetition argument sent is not valid then a <span class="error">SYNTAX_ERR</span> is thrown.</li>
+			<li>Rendering of the pattern starts in the top left corner of the canvas, to move the pattern without repeating it a translation on the canvas should suffice.</li>
+			<li>If <span class="param">image</span> is neither an HTML image, canvas, or video, then a <span class="error">TYPE_MISMATCH_ERR</span> is thrown.</li>
+			<li>If <span class="param">image</span> has no image data then an <span class="error">INVALID_STATE_ERR</span> is thrown.</li>
+			<li>If <span class="param">image</span> is an image whose <span class="member">complete</span> attribute is <span class="boolean">false</span> then the method returns nothing and no error is thrown.</li>
+			<li>If <span class="param">image</span> is a video whose <span class="member">readyState</span> attribute is either <span class="string">"HAVE_NOTHING"</span> or <span class="string">"HAVE_METADATA"</span> then the method returns nothing and no error is thrown.</li>
+			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="number">0</span> then an <span class="error">INVALID_STATE_ERR</span> is thrown.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="CanvasGradient"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Object</span> <b>CanvasGradient</b></li>
+		<ul>
+			<ul>
+				<li>CanvasGradient.addColorStop(<span class="param">offset</span>, <span class="param">color</span>)</li>
+				<ul>
+					<li>Parameters:</li>
+					<ul>
+						<li><span class="type">Number</span> <span class="param">offset</span> - The offset of the color stop, between <span class="number">0</span> and <span class="number">1</span>.</li>
+						<li><span class="type">String</span> <span class="param">color</span> - The color at that offset, must be a valid CSS color string.</li>
+					</ul>
+					<li>Used to add colored intervals to gradients, whether linear or radial.</li>
+					<li>If <span class="param">offset</span> is less than <span class="number">0</span>, greater than <span class="number">1</span>, <span class="number">Infinite</span>, or <span class="number">NaN</span>, then an <span class="error">INDEX_SIZE_ERR</span> is thrown.</li>
+					<li>If <span class="param">color</span> is not a valid CSS color string then a <span class="error">SYNTAX_ERR</span> is thrown.</li>
+				</ul>
+			</ul>
+			<li>Returned by <span class="member">context.createLinearGradient()</span> or <span class="member">context.createRadialGradient()</span>.</li>
+			<li>Holds a linear or radial gradient for use as the context's <span class="member">fillStyle</span> or <span class="member">strokeStyle</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="CanvasPattern"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Object</span> <b>CanvasPattern</b></li>
+		<ul>
+			<li>Cannot be modified, has no public properties or methods.</li>
+			<li>Returned by <span class="member">context.createPattern()</span>.</li>
+			<li>Holds a pattern for use as the context's <span class="member">fillStyle</span> or <span class="member">strokeStyle</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Line Styling -->
+
+<a name="lineStyling"></a>
+<h2>2. Line Styling</h2>
+
+<a name="lineWidth"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Number</span> context . <b>lineWidth</b></li>
+		<ul>
+			<li>Can be set to any positive, finite, non-zero number.</li>
+			<li>The width used when stroking shapes and paths.</li>
+			<li>Default value is <span class="number">1.0</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="lineCap"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>lineCap</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li><span class="string">"butt"</span></li>
+				<li><span class="string">"square"</span></li>
+				<li><span class="string">"round"</span></li>
+			</ul>
+			<li>Specifies how lines draw onto the canvas will be closed visually.</li>
+			<li>Values are case sensitive.</li>
+			<li>Default value is <span class="string">"butt"</span>.</li>
+		</ul>
+	</ul>
+	<hr>
+	<table class="leftAlign" width="99%">
+		<tr>
+			<td width="33%">context.lineCap = <span class="string">"butt"</span></td>
+			<td width="33%">context.lineCap = <span class="string">"square"</span></td>
+			<td width="33%">context.lineCap = <span class="string">"round"</span></td>
+		</tr>
+		<tr>
+			<td width="33%"><img src="images/lineCapButt.gif"></td>
+			<td width="33%"><img src="images/lineCapSquare.gif"></td>
+			<td width="33%"><img src="images/lineCapRound.gif"></td>
+		</tr>
+	</table>
+</blockquote>
+
+<a name="lineJoin"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>lineJoin</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li><span class="string">"bevel"</span></li>
+				<li><span class="string">"round"</span></li>
+				<li><span class="string">"miter"</span></li>
+			</ul>
+			<li>Specifies how lines drawn onto the canvas will meet visually.</li>
+			<li>Default value is <span class="string">"miter"</span>.</li>
+		</ul>
+	</ul>
+	<hr>
+	<table class="leftAlign" width="99%">
+		<tr>
+			<td width="33%">context.lineJoin = <span class="string">"bevel"</span></td>
+			<td width="33%">context.lineJoin = <span class="string">"round"</span></td>
+			<td width="33%">context.lineJoin = <span class="string">"miter"</span></td>
+		</tr>
+		<tr>
+			<td width="33%"><img src="images/lineJoinBevel.gif"></td>
+			<td width="33%"><img src="images/lineJoinRound.gif"></td>
+			<td width="33%"><img src="images/lineJoinMiter.gif"></td>
+		</tr>
+	</table>
+</blockquote>
+
+<a name="miterLimit"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Number</span> context . <b>miterLimit</b></li>
+		<ul>
+			<li>Can be set to any positive, finite, non-zero number.</li>
+			<li>When <span class="member">lineJoin</span> is set to <span class="string">"miter"</span>, this value defines the maximum allowed ratio between the miter length to half the line width. If the length of the miter length exceeds the ratio then it will not be drawn.</li>
+			<li>Default value is <span class="number">10</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Shadows -->
+
+<a name="shadows"></a>
+<h2>3. Shadows</h2>
+
+<a name="shadowColor"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>shadowColor</b></li>
+		<ul>
+			<li>Can be set to any valid CSS color string, any other values are ignored.</li>
+			<li>Defines what color the shadow drawn below stroked and filled shapes will be.</li>
+			<li>Default value is <span class="string">"rgba(0, 0, 0, 0.0)"</span>, transparent black.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="shadowOffsetX"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Number</span> context . <b>shadowOffsetX</b></li>
+		<ul>
+			<li>Offsets the shadow on the x axis.</li>
+			<li>Can be set to any finite number.</li>
+			<li>Default value is <span class="number">0</span>.</li>
+			<li>Is not affected by the <a href="#transformations">Transformation Matrix</a></li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="shadowOffsetY"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Number</span> context . <b>shadowOffsetY</b></li>
+		<ul>
+			<li>Offsets the shadow on the y axis.</li>
+			<li>Can be set to any finite number.</li>
+			<li>Default value is <span class="number">0</span>.</li>
+			<li>Is not affected by the <a href="#transformations">Transformation Matrix</a></li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="shadowBlur"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Number</span> context . <b>shadowBlur</b></li>
+		<ul>
+			<li>Can be set to any positive finite number.</li>
+			<li>Blurs shadows drawn below stroked or filled shapes.</li>
+			<li>Default value is <span class="number">0</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Rectangles -->
+
+<a name="rectangles"></a>
+<h2>4. Rectangles</h2>
+
+<a name="fillRect()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>fillRect(<span class="param">x</span>, <span class="param">y</span>, <span class="param">width</span>, <span class="param">height</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value of the rectangles top-left corner.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value of the rectangles top-left corner.</li>
+				<li><span class="type">Number</span> <span class="param">width</span> - The width of the rectangle, must be greater than zero.</li>
+				<li><span class="type">Number</span> <span class="param">height</span> - The height of the rectangle, must be greater than zero.</li>
+			</ul>
+			<li>Fills the specified rectangle with the current fillStyle.</li>
+			<li>Does not affect the current path.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li><a href="#fillStyle">context.fillStyle</a></li>
+				<li><a href="#globalAlpha">context.globalAlpha</a></li>
+				<li><a href="#globalCompositeOperation">context.globalCompositeOperation</a></li>
+				<li><a href="#shadows">Shadow Effects</a></li>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="strokeRect()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>strokeRect(<span class="param">x</span>, <span class="param">y</span>, <span class="param">width</span>, <span class="param">height</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value of the rectangles top-left corner.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value of the rectangles top-left corner.</li>
+				<li><span class="type">Number</span> <span class="param">width</span> - The width of the rectangle.</li>
+				<li><span class="type">Number</span> <span class="param">height</span> - The height of the rectangle.</li>
+			</ul>
+			<li>Strokes the specified rectangle with the current strokeStyle.</li>
+			<li>Either <span class="param">width</span> or <span class="param">height</span> may be zero, if so a straight line will be drawn along the non-zero dimension.</li>
+			<li>Does not affect the current path.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li><a href="#strokeStyle">context.strokeStyle</a></li>
+				<li><a href="#lineWidth">context.lineWidth</a></li>
+				<li><a href="#lineCap">context.lineCap</a></li>
+				<li><a href="#lineJoin">context.lineJoin</a></li>
+				<li><a href="#miterLimit">context.miterLimit</a></li>
+				<li><a href="#globalAlpha">context.globalAlpha</a></li>
+				<li><a href="#globalCompositeOperation">context.globalCompositeOperation</a></li>
+				<li><a href="#shadows">Shadow Effects</a></li>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="clearRect()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>clearRect(<span class="param">x</span>, <span class="param">y</span>, <span class="param">width</span>, <span class="param">height</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value of the rectangles top-left corner.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value of the rectangles top-left corner.</li>
+				<li><span class="type">Number</span> <span class="param">width</span> - The width of the rectangle, must be greater than zero.</li>
+				<li><span class="type">Number</span> <span class="param">height</span> - The height of the rectangle, must be greater than zero.</li>
+			</ul>
+			<li>Sets pixels in the specified rectangle to a fully transparent black, <span class="string">"rgba(0, 0, 0, 0.0)"</span>.</li>
+			<li>Does not affect the current path.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Paths -->
+
+<a name="paths"></a>
+<h2>5. Paths</h2>
+
+<p>
+	The 2d context for canvas is designed to make heavy use of paths, complex shapes made up of any number of straight lines and arcs.
+	<br>
+	Within a correct canvas implementation, the canvas always contains a list of sub-paths that make up the current path.
+	<br>
+	The path's current point is the ending point of the last segment.
+</p>
+
+<a name="beginPath()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>beginPath()</b></li>
+		<ul>
+			<li>Empties the list of subpaths, resetting the current path.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="moveTo()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>moveTo(<span class="param">x</span>, <span class="param">y</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value to move to.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value to move to.</li>
+			</ul>
+			<li>Sets a new specified starting point that the next subpath will start at.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="lineTo()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>lineTo(<span class="param">x</span>, <span class="param">y</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value to end the line at.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value to end the line at.</li>
+			</ul>
+			<li>Adds a line to the current path that begins at the current point and ends at the specified point.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="arcTo()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>arcTo(<span class="param">x1</span>, <span class="param">y1</span>, <span class="param">x2</span>, <span class="param">y2</span>, <span class="param">radius</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x1</span> - The x value of the curve's beginning point.</li>
+				<li><span class="type">Number</span> <span class="param">y1</span> - The y value of the curve's beginning point.</li>
+				<li><span class="type">Number</span> <span class="param">x2</span> - The x value of the curve's ending point.</li>
+				<li><span class="type">Number</span> <span class="param">y2</span> - The y value of the curve's ending point.</li>
+				<li><span class="type">Number</span> <span class="param">radius</span> - The radius of the arc.</li>
+			</ul>
+			<li>Adds an arc to the current path defined by the beginning and ending point, and the radius.</li>
+			<li>The current point and the first point sent will be joined by a line if they are not equal.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+			<li>Negative values for the radius raise an <span class="error">INDEX_SIZE_ERR</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="arc()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>arc(<span class="param">x</span>, <span class="param">y</span>, <span class="param">radius</span>, <span class="param">startAngle</span>, <span class="param">endAngle</span>, <span class="param">anticlockwise</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value of the arcs center.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value of the arcs center.</li>
+				<li><span class="type">Number</span> <span class="param">radius</span> - The radius of the arc.</li>
+				<li><span class="type">Number</span> <span class="param">startAngle</span> - The angle that the arc begins at, must be sent in radians.</li>
+				<li><span class="type">Number</span> <span class="param">endAngle</span> - The angle that the arc ends at, must be sent in radians.</li>
+				<li><span class="type">boolean</span> <span class="param">anticlockwise</span> - If true then the arc will be drawn in a counter-clockwise manner.</li>
+			</ul>
+			<li>Adds an arc to the current path defined by its center, radius, starting angle, and ending angle.</li>
+			<li>The current point and the point located at the specified starting angle will be joined by a line if they are not equal.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+			<li>Negative values for the radius raise an <span class="error">INDEX_SIZE_ERR</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="quadraticCurveTo()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>quadraticCurveTo(<span class="param">cpx</span>, <span class="param">cpy</span>, <span class="param">x</span>, <span class="param">y</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">cpx</span> - The x value of the curve's control point.</li>
+				<li><span class="type">Number</span> <span class="param">cpy</span> - The y value of the curve's control point.</li>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value to end the curve at.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value to end the curve at.</li>
+			</ul>
+			<li>Adds a quadratic curve to the current path defined by the specified control point and the end point.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="bezierCurveTo()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>bezierCurveTo(<span class="param">cp1x</span>, <span class="param">cp1y</span>, <span class="param">cp2x</span>, <span class="param">cp2y</span>, <span class="param">x</span>, <span class="param">y</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">cp1x</span> - The x value of the curve's first control point.</li>
+				<li><span class="type">Number</span> <span class="param">cp1y</span> - The y value of the curve's first control point.</li>
+				<li><span class="type">Number</span> <span class="param">cp2x</span> - The x value of the curve's second control point.</li>
+				<li><span class="type">Number</span> <span class="param">cp2y</span> - The y value of the curve's second control point.</li>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value to end the curve at.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value to end the curve at.</li>
+			</ul>
+			<li>Adds a bezier curve to the current path defined by the two specified control points and the end point.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="rect()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>rect(<span class="param">x</span>, <span class="param">y</span>, <span class="param">w</span>, <span class="param">h</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value of the rectangles top-left corner.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value of the rectangles top-left corner.</li>
+				<li><span class="type">Number</span> <span class="param">w</span> - The width of the rectangle.</li>
+				<li><span class="type">Number</span> <span class="param">h</span> - The height of the rectangle.</li>
+			</ul>
+			<li>Adds a rectangle to the path in the form of a subpath with four points corresponding to the four sides of the rectangle, a new subpath is then added starting at (<span class="param">x</span>,<span class="param">y</span>).</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="closePath()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>closePath()</b></li>
+		<ul>
+			<li>Closes the current path.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="fill()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>fill()</b></li>
+		<ul>
+			<li>Fills the current path with the current fillStyle, closing it if it is not already closed.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li><a href="#fillStyle">context.fillStyle</a></li>
+				<li><a href="#globalAlpha">context.globalAlpha</a></li>
+				<li><a href="#globalCompositeOperation">context.globalCompositeOperation</a></li>
+				<li><a href="#shadows">Shadow Effects</a></li>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="stroke()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>stroke()</b></li>
+		<ul>
+			<li>Srokes the current path with the current strokeStyle, closing it if it is not already closed.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li><a href="#strokeStyle">context.strokeStyle</a></li>
+				<li><a href="#lineWidth">context.lineWidth</a></li>
+				<li><a href="#lineCap">context.lineCap</a></li>
+				<li><a href="#lineJoin">context.lineJoin</a></li>
+				<li><a href="#miterLimit">context.miterLimit</a></li>
+				<li><a href="#globalAlpha">context.globalAlpha</a></li>
+				<li><a href="#globalCompositeOperation">context.globalCompositeOperation</a></li>
+				<li><a href="#shadows">Shadow Effects</a></li>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="clip()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>clip()</b></li>
+		<ul>
+			<li>Sets the current path as the clipping region where it intersects with the current one.</li>
+			<li>Rendering done to the canvas is subject to the clipping region and will only be performed where the shape/image to be rendered intersects with it.</li>
+			<li>By default the clipping region is a rectangle that stretches the breadth of the canvas.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="isPointInPath()"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">boolean</span> context . <b>isPointInPath(<span class="param">x</span>, <span class="param">y</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value of the point to check.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value of the point to check.</li>
+			</ul>
+			<li>Returns <span class="boolean">true</span> if the specified point is within the shape composed by the current path, false otherwise.</li>
+			<li>Returns false if any argument is <span class="number">Infinite</span> or <span class="number">NaN</span>.</li>
+			<li>Points that lie on the path are considered to be within the path.</li>
+			<li>W3C specifies that the Non-Zero Winding Number Rule should be used to test if the point is within the shape.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Text -->
+
+<a name="text"></a>
+<h2>6. Text</h2>
+
+<p>
+	The text rendering abilites of the 2d context involve the font property, two methods that each fill and stroke text, two properties that modify positioning the text, and a method to measure the width of the specified text.
+	<br>
+	Within the Bespin text editor from Mozilla, measuring the height of the text is accomplished by measuring the width of a lowercase "m".
+	<br>
+	Within Firefox, measuring text takes almost as long as rendering it, try to avoid over-using it.
+	<br>
+	Opera does not currently support any text related properties or methods.
+	<br>
+	It seems that Chromium ignores the maxWidth argument.
+</p>
+
+<a name="font"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>font</b></li>
+		<ul>
+			<li>Can be set to any valid CSS font string.</li>
+			<li>Specifies the font( and font size) to use when rendering text.</li>
+			<li>Default value is <span class="string">"10px sans-serif"</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="textAlign"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>textAlign</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li><span class="string">"start"</span> - The start of the text, which depends on the directionality of the canvas.</li>
+				<li><span class="string">"end"</span> - The end of the text, which depends on the directionality of the canvas.</li>
+				<li><span class="string">"left"</span> - The left side of the text.</li>
+				<li><span class="string">"right"</span> - The right side of the text.</li>
+				<li><span class="string">"center"</span> - The center of the text.</li>
+			</ul>
+			<li>Default value is <span class="string">"start"</span>.</li>
+			<li>The possible values of textAlign change the horizontal position of the anchor used when drawing text.</li>
+
+			<li>In the images below the method fillText(centerX,centerY,"Some Text") was called across different textAlign values, the red dot indicates the anchor used to position the text.</li>
+			<li>Note that in these images the text directionality is ltr, if changed to rtl then the <span class="string">"start"</span> and <span class="string">"end"</span> values will produce the opposite effect.</li>
+		</ul>
+	</ul>
+	<hr>
+	<table class="leftAlign" width="100%">
+		<tr>
+			  <td width="20%">context.textAlign = <span class="string">"start"</span></td>
+			  <td width="20%">context.textAlign = <span class="string">"end"</span></td>
+			  <td width="20%">context.textAlign = <span class="string">"left"</span></td>
+			  <td width="20%">context.textAlign = <span class="string">"right"</span></td>
+			  <td width="20%">context.textAlign = <span class="string">"center"</span></td>
+		</tr>
+		<tr>
+			  <td width="20%"><img src="images/textAlignStart.gif"></td>
+			  <td width="20%"><img src="images/textAlignEnd.gif"></td>
+			  <td width="20%"><img src="images/textAlignLeft.gif"></td>
+			  <td width="20%"><img src="images/textAlignRight.gif"></td>
+			  <td width="20%"><img src="images/textAlignCenter.gif"></td>
+		</tr>
+	</table>
+</blockquote>
+
+<a name="textBaseline"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>baseLine</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li><span class="string">"top"</span> - The top of the em square.</li>
+				<li><span class="string">"hanging"</span> - The hanging baseline.</li>
+				<li><span class="string">"middle"</span> - The middle of the em square.</li>
+				<li><span class="string">"alphabetic"</span> - The alphabetic baseline.</li>
+				<li><span class="string">"ideographic"</span> - The ideographic baseline.</li>
+				<li><span class="string">"bottom"</span> - The bottom of the em square.</li>
+			</ul>
+			<li>Default value is <span class="string">"alphabetic"</span>.</li>
+			<li>The possible textBaseline values change the vertical position of the anchor used when drawing text.</li>
+			<li>In the images below the method fillText(centerX,centerY,"Some Text") was called across different textBaseline values, the red dot indicates the anchor used to position the text.</li>
+			<li>Note that the <span class="string">"hanging"</span> option is positioned imcorrectly, these images were extracted from a canvas element in Firefox when the hanging baseline was not yet implemented and was treated as <span class="string">"alphabetic"</span>.</li>
+			<img src="images/textBaselines.png">
+		</ul>
+	</ul>
+	<hr>
+	<table class="leftAlign" width="99%">
+		<tr>
+			  <td width="16.5%">context.textBaseline = <span class="string">"top"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="string">"hanging"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="string">"middle"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="string">"alphabetic"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="string">"ideographic"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="string">"bottom"</span></td>
+		</tr>
+		<tr>
+			  <td width="16.5%"><img src="images/textBaselineTop.gif"></td>
+			  <td width="16.5%"><img src="images/textBaselineHanging.gif"></td>
+			  <td width="16.5%"><img src="images/textBaselineMiddle.gif"></td>
+			  <td width="16.5%"><img src="images/textBaselineAlphabetic.gif"></td>
+			  <td width="16.5%"><img src="images/textBaselineIdeographic.gif"></td>
+			  <td width="16.5%"><img src="images/textBaselineBottom.gif"></td>
+		</tr>
+	</table>
+</blockquote>
+
+<a name="fillText()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>fillText(<span class="param">text</span>, <span class="param">x</span>, <span class="param">y</span>[, <span class="param">maxWidth</span>])</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">String</span> <span class="param">text</span> - The text to draw onto canvas.</li>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x position to draw the text's anchor point at.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y position to draw the text's anchor point at.</li>
+				<li><span class="type">Number</span> <span class="param">maxWidth</span> - Optional, the maximum width of the rendered text.</li>
+			</ul>
+			<li>Draws specified text filled with the current fillStyle at the specified location.</li>
+			<li>If specified then the width of the text will not exceed that of the <span class="param">maxWidth</span> argument.</li>
+			<li>Does not affect the current path.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li><a href="#font">context.font</a></li>
+				<li><a href="#textAlign">context.textAlign</a></li>
+				<li><a href="#textBaseline">context.textBaseline</a></li>
+				<li><a href="#fillStyle">context.fillStyle</a></li>
+				<li><a href="#globalAlpha">context.globalAlpha</a></li>
+				<li><a href="#globalCompositeOperation">context.globalCompositeOperation</a></li>
+				<li><a href="#shadows">Shadow Effects</a></li>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="strokeText()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>strokeText(<span class="param">text</span>, <span class="param">x</span>, <span class="param">y</span>[, <span class="param">maxWidth</span>])</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">String</span> <span class="param">text</span> - The text to draw onto canvas.</li>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x position to draw the text's anchor point at.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y position to draw the text's anchor point at.</li>
+				<li><span class="type">Number</span> <span class="param">maxWidth</span> - Optional, the maximum width of the rendered text.</li>
+			</ul>
+			<li>Draws the specified text stroked with the current strokeStyle at the specified location.</li>
+			<li>If specified then the width of the text will not exceed that of the <span class="param">maxWidth</span> argument.</li>
+			<li>Does not affect the current path.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li><a href="#font">context.font</a></li>
+				<li><a href="#textAlign">context.textAlign</a></li>
+				<li><a href="#textBaseline">context.textBaseline</a></li>
+				<li><a href="#strokeStyle">context.strokeStyle</a></li>
+				<li><a href="#lineWidth">context.lineWidth</a></li>
+				<li><a href="#lineCap">context.lineCap</a></li>
+				<li><a href="#lineJoin">context.lineJoin</a></li>
+				<li><a href="#miterLimit">context.miterLimit</a></li>
+				<li><a href="#globalAlpha">context.globalAlpha</a></li>
+				<li><a href="#globalCompositeOperation">context.globalCompositeOperation</a></li>
+				<li><a href="#shadows">Shadow Effects</a></li>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="measureText()"></a>
+<blockquote>
+	<ul>
+		<li><a href="#TextMetrics" class="type">TextMetrics</a> context . <b>measureText(<span class="param">text</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">String</span> <span class="param">text</span> - The text to measure.</li>
+			</ul>
+			<li>Measures the width of the specified text.</li>
+			<li>The width of the text is given by the width of the affected region if the text was to be rendered onto the canvas using the current font.</li>
+			<li>Returns a <a href="#TextMetrics" class="type">TextMetrics</a> object.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li><a href="#font">context.font</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="TextMetrics"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Object</span> <b>TextMetrics</b></li>
+		<ul>
+			<ul>
+				<li><span class="type">Number</span> TextMetrics.width</li>
+				<ul>
+					<li>The width of the measured text.</li>
+				</ul>
+			</ul>
+			<li>Returned by <span class="member">context.measureText()</span>.</li>
+			<li>Holds the width of a string of text if rendered onto the canvas.</li>
+			<li>Unfortunately there is no easy way to measure the height of any rendered text, though there are some workarounds.</li>
+			<ul>
+				<li>Render text with a font size in pixels, so that the height of the text should be known from the font size.</li>
+				<li>Measure the width of the lowercase "m" character, this seems to be an accurate measurement with certain fonts.</li>
+				<li>Keep a list/database of the heights of commonly used fonts.</li>
+				<li>Draw some text onto an empty canvas and check what pixels were affected(changed color) from rendering the text.</li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Images -->
+
+<a name="images"></a>
+<h2>7. Images</h2>
+
+<a name="drawImage()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>drawImage(<span class="param">image</span>, <span class="param">dx</span>, <span class="param">dy</span>[, <span class="param">dw</span>, <span class="param">dh</span>])</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">HTMLImageElement</span>, <span class="type">HTMLCanvasElement</span>, <span class="type">HTMLVideoElement</span> <span class="param">image</span> - What to draw onto the canvas, whether its an image, canvas, or a video.</li>
+				<li><span class="type">Number</span> <span class="param">dx</span> - Destination x, the x value at which to draw the image.</li>
+				<li><span class="type">Number</span> <span class="param">dy</span> - Destination y, the y value at which to draw the image.</li>
+				<li><span class="type">Number</span> <span class="param">dw</span> - Destination w, optional, the width at which to draw the image.</li>
+				<li><span class="type">Number</span> <span class="param">dh</span> - Destination h, optional, the height at which to draw the image.</li>
+			</ul>
+			<li>Draws the specified image to the canvas, scaling the image if needed.</li>
+		</ul>
+		<br>
+		<li>context . <b>drawImage(<span class="param">image</span>, <span class="param">sx</span>, <span class="param">sy</span>, <span class="param">sw</span>, <span class="param">sh</span>, <span class="param">dx</span>, <span class="param">dy</span>, <span class="param">dw</span>, <span class="param">dh</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">HTMLImageElement</span>, <span class="type">HTMLCanvasElement</span>, <span class="type">HTMLVideoElement</span> <span class="param">image</span> - What to draw onto the canvas, whether its an image, canvas, or a video.</li>
+				<li><span class="type">Number</span> <span class="param">sx</span> - Source x, the x location of the source rectangle in the image.</li>
+				<li><span class="type">Number</span> <span class="param">sy</span> - Source y, the y location of the source rectangle in the image.</li>
+				<li><span class="type">Number</span> <span class="param">sw</span> - Source w, the width of the source rectangle in the image.</li>
+				<li><span class="type">Number</span> <span class="param">sh</span> - Source h, the height of the source rectangle in the image.</li>
+				<li><span class="type">Number</span> <span class="param">dx</span> - Destination x, the x location of the destination rectangle.</li>
+				<li><span class="type">Number</span> <span class="param">dy</span> - Destination y, the y location of the destination rectangle.</li>
+				<li><span class="type">Number</span> <span class="param">dw</span> - Destination w, the width of the destination rectangle.</li>
+				<li><span class="type">Number</span> <span class="param">dh</span> - Destination h, the height of the destination rectangle.</li>
+			</ul>
+			<li>Draws a rectangular section of the specified image to the specified region on the canvas, scaling the image if needed.</li>
+		</ul>
+		<br>
+		<ul>
+			<li>It is up to the browser to determine what algorithm will be used to scale the image.</li>
+			<li>Note that it is possible to draw a canvas onto iself, the image on the canvas is copied before being rendered back onto the canvas.</li>
+			<li>If the numeric arguments do not make sense then an <span class="error">INDEX_SIZE_ERR</span> is thrown and nothing is drawn.</li>
+			<li>If <span class="param">image</span> is neither an HTML image, canvas, or video, then a <span class="error">TYPE_MISMATCH_ERR</span> is thrown and nothing is drawn.</li>
+			<li>If <span class="param">image</span> has no image data then an <span class="error">INVALID_STATE_ERR</span> is thrown and nothing is drawn.</li>
+			<li>If <span class="param">image</span> is an image whose <span class="member">complete</span> attribute is <span class="boolean">false</span> then the method returns without drawing anything or throwing an error.</li>
+			<li>If <span class="param">image</span> is a video whose <span class="member">readyState</span> attribute is either <span class="string">"HAVE_NOTHING"</span> or <span class="string">"HAVE_METADATA"</span> then the method returns without drawing anything or throwing an error.</li>
+			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="number">0</span> then the method throws an <span class="error">INVALID_STATE_ERR</span> and nothing is drawn.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li><a href="#globalAlpha">context.globalAlpha</a></li>
+				<li><a href="#globalCompositeOperation">context.globalCompositeOperation</a></li>
+				<li><a href="#shadows">Shadow Effects</a></li>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+			</ul>
+			<br>
+			<img src="images/drawImage.gif">
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Pixel Manipulation -->
+
+<a name="pixelManipulation"></a>
+<h2>8. Pixel Manipulation</h2>
+
+<a name="createImageData()"></a>
+<blockquote>
+	<ul>
+		<li><a href="#ImageData" class="type">ImageData</a> context . <b>createImageData(<span class="param">w</span>, <span class="param">h</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">w</span> - The width of the image data to return.</li>
+				<li><span class="type">Number</span> <span class="param">h</span> - The height of the image data to return.</li>
+			</ul>
+			<li>Returns a blank <a href="#ImageData" class="type">ImageData</a> object with the specified width and height.</li>
+		</ul>
+		<br>
+		<li><a href="#ImageData" class="type">ImageData</a> context . <b>createImageData(<span class="param">imageData</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><a href="#ImageData" class="type">ImageData</a> <span class="param">imageData</span> - The <a href="#ImageData" class="type">ImageData</a> object to look for a width and height.</li>
+			</ul>
+			<li>Returns a blank <a href="#ImageData" class="type">ImageData</a> object with the same width and height as the sent <a href="#ImageData" class="type">ImageData</a> object.</li>
+		</ul>
+		<br>
+		<ul>
+			<li>Used to create new <a href="#ImageData" class="type">ImageData</a> objects.</li>
+			<li>New <a href="#ImageData" class="type">ImageData</a> objects will be filled with transparent black.</li>
+			<li>A <span class="error">TYPE_MISMATCH_ERR</span> is thrown if arguments are <span class="type">null</span>.</li>
+			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="number">Infinity</span> or <span class="number">NaN</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="getImageData()"></a>
+<blockquote>
+	<ul>
+		<li><a href="#ImageData" class="type">ImageData</a> context . <b>getImageData(<span class="param">sx</span>, <span class="param">sy</span>, <span class="param">sw</span>, <span class="param">sh</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">sx</span> - The x location of the rectangle to get the image data from.</li>
+				<li><span class="type">Number</span> <span class="param">sy</span> - The y location of the rectangle to get the image data from.</li>
+				<li><span class="type">Number</span> <span class="param">sw</span> - The width of the rectangle to get the image data from.</li>
+				<li><span class="type">Number</span> <span class="param">sh</span> - The height of the rectangle to get the image data from.</li>
+			</ul>
+			<li>Returns an <a href="#ImageData" class="type">ImageData</a> object holding pixel data from the specified rectangle.</li>
+			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="number">Infinity</span> or <span class="number">NaN</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="putImageData()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>putImageData(<span class="param">imageData</span>, <span class="param">dx</span>, <span class="param">dy</span>[, <span class="param">dirtyX</span>, <span class="param">dirtyH</span>, <span class="param">dirtyW</span>, <span class="param">dirtyH</span>])</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><a href="#ImageData" class="type">ImageData</a> <span class="param">imageData</span> - The image data to place onto canvas.</li>
+				<li><span class="type">Number</span> <span class="param">dx</span> - The x location to place the image data.</li>
+				<li><span class="type">Number</span> <span class="param">dy</span> - The y location to place the image data.</li>
+				<li><span class="type">Number</span> <span class="param">dirtyX</span> - Optional, the x location of the clipping rectangle to use.</li>
+				<li><span class="type">Number</span> <span class="param">dirtyY</span> - Optional, the y location of the clipping rectangle to use.</li>
+				<li><span class="type">Number</span> <span class="param">dirtyW</span> - Optional, the width of the clipping rectangle to use.</li>
+				<li><span class="type">Number</span> <span class="param">dirtyH</span> - Optional, the height of the clipping rectangle to use.</li>
+			</ul>
+			<li>Places the sent image data onto the canvas without any styling or compositing effects.</li>
+			<li>Pixels from the sent image data will only be placed onto the canvas if they also intersect with the dirty rectangle if it is provided.</li>
+			<li>If the first argument is not an <a href="#ImageData" class="type">ImageData</a> object then a <span class="error">TYPE_MISMATCH_ERR</span> is thrown.</li>
+			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="number">Infinity</span> or <span class="number">NaN</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="ImageData"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Object</span> <b>ImageData</b></li>
+		<ul>
+			<ul>
+				<li><span class="type">Number</span> width</span></li>
+				<ul>
+					<li>The width of the image.</li>
+				</ul>
+				<li><span class="type">Number</span> height</span></li>
+				<ul>
+					<li>The height of the image.</li>
+				</ul>
+				<li><span class="type">CanvasPixelArray</span> data</li>
+				<ul>
+					<li>A one dimensional array holding numbers for the red, green, blue, and alpha component of every pixel.</li>
+					<li>The length of the array being the number of pixels in the image multiplied by 4 for the four color components of each pixel.</li>
+				</ul>
+			</ul>
+				<li>An object that represents a bitmap image.</li>
+				<li>Returned by <span class="member">context.createImageData()</span> or <span class="member">context.getImageData()</span>.</li>
+				<li>Taken as an argument by <span class="member">context.putImageData()</span>.</li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Context States -->
+
+<a name="states"></a>
+<h2>9. Context States</h2>
+
+<p>
+	The browser keeps a stack of context "states", each of which is an instance(snapshot) of the context's properties.
+	<br>
+	The management of these states is done with two commands, one to push the current state onto the stack, and another to restore the most recent state to the context.
+	<br>
+	The correct application of these states can be invaluable when doing complex drawing onto a canvas.
+</p>
+
+<a name="save()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>save()</b></li>
+		<ul>
+			<li>Pushes(adds) the current context state onto the stack.</li>
+			<li>The current path is not included in the context state, it is reset only with the beginPath() method.</li>
+			<li>The context state consists of the following properties/values:</li>
+			<ul>
+				<li><a href="#fillStyle">fillStyle</a></li>
+				<li><a href="#strokeStyle">strokeStyle</a></li>
+				<li><a href="#lineWidth">lineWidth</a></li>
+				<li><a href="#lineCap">lineCap</a></li>
+				<li><a href="#lineJoin">lineJoin</a></li>
+				<li><a href="#miterLimit">miterLimit</a></li>
+				<li><a href="#shadowColor">shadowColor</a></li>
+				<li><a href="#shadowOffsetX">shadowOffsetX</a></li>
+				<li><a href="#shadowOffsetY">shadowOffsetY</a></li>
+				<li><a href="#shadowBlur">shadowBlur</a></li>
+				<li><a href="#font">font</a></li>
+				<li><a href="#textAlign">textAlign</a></li>
+				<li><a href="#textBaseline">textBaseline</a></li>
+				<li><a href="#globalAlpha">globalAlpha</a></li>
+				<li><a href="#globalCompositeOperation">globalCompositeOperation</a></li>
+				<li>The <a href="#clip()">Clipping Region</a></li>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="restore()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>restore()</b></li>
+		<ul>
+			<li>Pops(removes) the most recently saved state from the stack and applies it to the context.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Transformations -->
+
+<a name="transformations"></a>
+<h2>10. Transformations</h2>
+
+<a name="scale()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>scale(<span class="param">x</span>, <span class="param">y</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The scale factor in the horizontal direction.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The scale factor in the vertical direction.</li>
+			</ul>
+			<li>Scales the transformation matrix by the specified amount.</li>
+			<li>Such that a factor of <span class="number">1</span> will not change the scale on that dimension, whereas a factor of <span class="number">2</span> will double the scale.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="rotate()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>rotate(<span class="param">angle</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">angle</span> - The angle in radians to rotate the transformation matrix by.</li>
+			</ul>
+			<li>Rotates the transformation matrix clockwise by the specified amount.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="translate()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>translate(<span class="param">x</span>, <span class="param">y</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The amount by which to horizontally translate the transformation matrix.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The amount by which to vertically translate the transformation matrix.</li>
+			</ul>
+			<li>Translates the transformation matrix by the specified values.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="transform()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>transform(<span class="param">m11</span>, <span class="param">m12</span>, <span class="param">m21</span>, <span class="param">m22</span>, <span class="param">dx</span>, <span class="param">dy</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">m11</span> - The entry at (1,1) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">m12</span> - The entry at (1,2) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">m21</span> - The entry at (2,1) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">m12</span> - The entry at (2,2) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">dx</span> - The entry at (3,1) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">dy</span> - The entry at (3,2) of the multiplier matrix.</li>
+			</ul>
+			<li>Multiplies the current transformation matrix by the matrix below, composed of the specified values.</li>
+			<table style="padding: 4px">
+				<tr>
+					<td class="matrixCell"><span class="param">m11</span></td>
+					<td class="matrixCell"><span class="param">m21</span></td>
+					<td class="matrixCell"><span class="param">dx</span></td>
+				<tr>
+					<td class="matrixCell"><span class="param">m12</span></td>
+					<td class="matrixCell"><span class="param">m22</span></td>
+					<td class="matrixCell"><span class="param">dy</span></td>
+				<tr>
+					<td class="matrixCell">0</td>
+					<td class="matrixCell">0</td>
+					<td class="matrixCell">1</td>
+				</tr>
+			</table>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="setTransform()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>setTransform(<span class="param">m11</span>, <span class="param">m12</span>, <span class="param">m21</span>, <span class="param">m22</span>, <span class="param">dx</span>, <span class="param">dy</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">m11</span> - The entry at (1,1) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">m12</span> - The entry at (1,2) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">m21</span> - The entry at (2,1) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">m12</span> - The entry at (2,2) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">dx</span> - The entry at (3,1) of the multiplier matrix.</li>
+				<li><span class="type">Number</span> <span class="param">dy</span> - The entry at (3,2) of the multiplier matrix.</li>
+			</ul>
+			<li>This method resets the transformation matrix and then calls <span class="member">context.transform()</span> with the specified arguments.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<!-- Composition -->
+
+<a name="composition"></a>
+<h2>11. Composition</h2>
+
+<a name="globalAlpha"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Number</span> context . <b>globalAlpha</b></li>
+		<ul>
+			<li>Accepts any number between <span class="number">0</span> and <span class="number">1</span>.</li>
+			<li>On most renderings this number is applied to the pre-existing alpha component.</li>
+			<li>With a <span class="member">globalAlpha</span> of <span class="number">0</span> the color/image will be completely transparent, as if no drawing had been done.</li>
+			<li>With a <span class="member">globalAlpha</span> of <span class="number">1</span> the alpha component of that color/image will remain opaque.</li>
+			<li>Default value is <span class="number">1</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="globalCompositeOperation"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>globalCompositeOperation</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li><span class="string">"source-over"</span> - The source is rendered above the destination.</li>
+				<li><span class="string">"source-in"</span> - The source is rendered where it intersects with the destination. Destination is discarded.</li>
+				<li><span class="string">"source-out"</span> - The source is rendered where it does not intersect with the destination. Destination is discarded.</li>
+				<li><span class="string">"source-atop"</span> - The source is rendered where it intersects with the destination.</li>
+				<li><span class="string">"destination-over"</span> - The destination is rendered above the source.</li>
+				<li><span class="string">"destination-in"</span> - The destination is rendered where it intersects with the source. Source is discarded.</li>
+				<li><span class="string">"destination-out"</span> - The destination is rendered where it does not intersect with the source. Source is discarded.</li>
+				<li><span class="string">"destination-atop"</span> - The destination is rendered where it intersects with the source.</li>
+				<li><span class="string">"lighter"</span> - Renders a sum of the source and destination images, with color values approaching 255 as a limit.</li>
+				<li><span class="string">"copy"</span> - Only the source is rendered, the destination is discarded, this will eliminate shadow effects.</li>
+				<li><span class="string">"xor"</span> - Exclusive OR of the images, pixels are discarded where they intersect with the source and destination.</li>
+			</ul>
+			<li>Specifies how new image data(the source) should be rendered onto the canvas in relation to the current image data(the destination).</li>
+			<li>In operations that deal with shapes and vector images, the image is first rendered onto a temporary bitmap and then treated as the source.</li>
+			<li>Default value is <span class="string">"source-over"</span>.</li>
+		</ul>
+	</ul>
+	<hr>
+	<table class="leftAlign" width="100%">
+		<tr>
+			<td class="string" width="9%">"source-over"</td>
+			<td class="string" width="9%">"source-in"</td>
+			<td class="string" width="9%">"source-out"</td>
+			<td class="string" width="9%">"source-atop"</td>
+			<td class="string" width="9%">"destination-over"</td>
+			<td class="string" width="9%">"destination-in"</td>
+			<td class="string" width="9%">"destination-out"</td>
+			<td class="string" width="9%">"destination-atop"</td>
+			<td class="string" width="9%">"lighter"</td>
+			<td class="string" width="9%">"copy"</td>
+			<td class="string" width="9%">"xor"</td>
+		</tr>
+		<tr>
+			<td width="9%"><img src="images/sourceOver.gif"></td>
+			<td width="9%"><img src="images/sourceIn.gif"></td>
+			<td width="9%"><img src="images/sourceOut.gif"></td>
+			<td width="9%"><img src="images/sourceAtop.gif"></td>
+			<td width="9%"><img src="images/destinationOver.gif"></td>
+			<td width="9%"><img src="images/destinationIn.gif"></td>
+			<td width="9%"><img src="images/destinationOut.gif"></td>
+			<td width="9%"><img src="images/destinationAtop.gif"></td>
+			<td width="9%"><img src="images/lighter.gif"></td>
+			<td width="9%"><img src="images/copy.gif"></td>
+			<td width="9%"><img src="images/xor.gif"></td>
+		</tr>
+	</table>
+</blockquote>
+
+<!-- Drawing Model -->
+
+<a name="drawingModel"></a>
+<h2>12. The Drawing Model</h2>
+
+<p>
+This model applies to all methods that render shapes or images to the canvas aside from the putImageData() method.
+</p>
+
+<ol>
+	<li>Render the shape/image onto a temporary bitmap using the current styling and transformation matrix.</li>
+	<li>If a shadow is to be drawn, render the shadow for the shape/image onto another temporary bitmap.</li>
+	<li>If a shadow is to be drawn, multiply the alpha component of every pixel in the shadow by the globalAlpha.</li>
+	<li>If a shadow is to be drawn, composite the shadow onto the canvas within the clipping region using the current composition method.</li>
+	<li>Multiple the alpha component of every pixel in the shape/image by the globalAlpha.</li>
+	<li>Composite the shape/image onto the canvas within the clipping region using the current composition method.</li>
+</ol>
+
+<!-- Disclaimer -->
+
+<br>
+<b>Disclaimer</b>
+<p>
+	All images from this page have been taken from either W3C's Canvas 2d Context Specification(http://dev.w3.org/html5/2dcontext/) or Nihilogic(http://blog.nihilogic.dk/) and added onto this page with a bit of editing.
+	<br>
+	No copyright infringement intended, all images are owned by their respective owners.
+</p>
