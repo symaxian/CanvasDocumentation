@@ -70,12 +70,28 @@ b {
 	</style>
 </head>
 
+<!-- TODO
+
+	More links
+
+	Fix the textBaseline "hanging" example image
+
+	Undocumented sections from W3C
+
+	Document the canvas element, separate page?
+
+	Performance suggestions?
+
+	More documentation on browser compatibility?
+
+-->
+
 <body style="font-family: sans-serif;">
 
 <!-- Title -->
 
 <h1>Canvas 2d Context Documentation <span class="font10">by <a href="http://github.com/symaxian">Jonathon Reesor</a></span></h1>
-<h6>Last Edited: Mon, Aug 22, 2011</h6>
+<h6>Last Edited: Sat, Aug 13, 2011</h6>
 
 <!-- Description -->
 
@@ -116,7 +132,7 @@ b {
 	<li><a href="#pixelManipulation">Pixel Manipulation</a></li>
 	<li><a href="#states">Context States</a></li>
 	<li><a href="#transformations">Transformations</a></li>
-	<li><a href="#compositing">Compositing</a></li>
+	<li><a href="#composition">Compositing</a></li>
 	<li><a href="#drawingModel">The Drawing Model</a></li>
 </ol>
 
@@ -862,7 +878,7 @@ b {
 			<li>Default value is <span class="string">"alphabetic"</span>.</li>
 			<li>The possible textBaseline values change the vertical position of the anchor used when drawing text.</li>
 			<li>In the images below the method fillText(centerX,centerY,"Some Text") was called across different textBaseline values, the red dot indicates the anchor used to position the text.</li>
-			<li>Note that the <span class="string">"hanging"</span> option is positioned imcorrectly, these images were extracted from a canvas element in Firefox when the hanging baseline was not yet implemented and was treated as <span class="string">"alphabetic"</span>.</li>
+			<li>Note that the <span class="string">"hanging"</span> option is positioned incorrectly, these images were extracted from a canvas element in Firefox when the hanging baseline was not yet implemented and was treated as <span class="string">"alphabetic"</span>.</li>
 			<img src="images/textBaselines.png">
 		</ul>
 	</ul>
