@@ -39,15 +39,15 @@ b {
 	text-align: center;
 }
 
-.boolean {
+.bool {
 	color: navy;
 }
 
-.number {
+.num {
 	color: sienna;
 }
 
-.string {
+.str {
 	color: green;
 }
 
@@ -91,7 +91,7 @@ b {
 <!-- Title -->
 
 <h1>Canvas 2d Context Documentation <span class="font10">by <a href="http://github.com/symaxian">Jonathon Reesor</a></span></h1>
-<h6>Last Edited: Sat, Aug 13, 2011</h6>
+<h6>Last Edited: Tue, Sep 13, 2011</h6>
 
 <!-- Description -->
 
@@ -101,7 +101,7 @@ b {
 	<br>
 	Most all information on this page comes directly from W3C's working draft of the 2d context for the canvas element.
 	<br>
-	Calling <span class="member">getContext(<span class="string">"2d"</span>)</span> on an HTMLCanvasElement returns this interface(an object) for rendering shapes, text, images, and video.
+	Calling <span class="member">getContext(<span class="str">"2d"</span>)</span> on an HTMLCanvasElement returns this interface(an object) for rendering shapes, text, images, and video.
 	<br>
 	Most of the context properties and methods defined by W3C are documented on this page, the absent sections dealing with focus management and caret selection.
 	<br>
@@ -113,7 +113,7 @@ b {
 <ul>
 	<li><a href="http://www.w3.org/TR/2dcontext/">HTML Canvas 2d Context - W3C Working Draft</a></li>
 	<li><a href="images/HTML5_Canvas_Cheat_Sheet.png">An Excellent HTML5 Canvas Cheat Sheet by Nihilogic</a></li>
-	<li><a href="http://www.quirksmode.org/">Quirksmode - Prime source for documentation on browser compatibilities.</a></li>
+	<li><a href="http://www.quirksmode.org/">Quirksmode - Prime source for documentation on browser compatibilities and quirks.</a></li>
 	<li><a href="http://www.modernizr.com/">Modernizr - A great tool for detecting browser capabilities.</a></li>
 </ul>
 
@@ -153,17 +153,17 @@ b {
 				<li><a href="#CanvasPattern">CanvasPattern</a></li>
 			</ul>
 			<li>The current style used to fill shapes.</li>
-			<li>Default value is <span class="string">"#000000"</span>.</li>
+			<li>Default value is <span class="str">"#000000"</span>.</li>
 			<br>
 			<li>On retrieval, if <span class="member">context.fillStyle</span> is:</li>
 			<ul>
-				<li>A color with an alpha value of <span class="number">1</span>, the hex representation of the color will be returned.</li>
+				<li>A color with an alpha value of <span class="num">1</span>, the hex representation of the color will be returned.</li>
 				<ul>
-					<li>Such as the color black will be returned as <span class="string">"#000000"</span>.</li>
+					<li>Such as the color black will be returned as <span class="str">"#000000"</span>.</li>
 				</ul>
-				<li>A color with an alpha value less than <span class="number">1</span>, the CSS color string representation of the color will be returned.</li>
+				<li>A color with an alpha value less than <span class="num">1</span>, the CSS color string representation of the color will be returned.</li>
 				<ul>
-					<li>Such as the color transparent black will be returned as <span class="string">"rgba(0,0,0,0)"</span>.</li>
+					<li>Such as the color transparent black will be returned as <span class="str">"rgba(0,0,0,0)"</span>.</li>
 				</ul>
 				<li>A CanvasGradient object, the CanvasGradient object will be returned.</li>
 				<li>A CanvasPattern object, the CanvasPattern object will be returned.</li>
@@ -184,17 +184,17 @@ b {
 				<li><a href="#CanvasPattern">CanvasPattern</a></li>
 			</ul>
 			<li>The current style used to stroke shapes.</li>
-			<li>Default value is <span class="string">"#000000"</span>.</li>
+			<li>Default value is <span class="str">"#000000"</span>.</li>
 			<br>
 			<li>On retrieval, if <span class="member">context.strokeStyle</span> is:</li>
 			<ul>
-				<li>A color with an alpha value of <span class="number">1</span>, the hex representation of the color will be returned.</li>
+				<li>A color with an alpha value of <span class="num">1</span>, the hex representation of the color will be returned.</li>
 				<ul>
-					<li>Such as the color black will be returned as <span class="string">"#000000"</span>.</li>
+					<li>Such as the color black will be returned as <span class="str">"#000000"</span>.</li>
 				</ul>
-				<li>A color with an alpha value less than <span class="number">1</span>, the CSS color string representation of the color will be returned.</li>
+				<li>A color with an alpha value less than <span class="num">1</span>, the CSS color string representation of the color will be returned.</li>
 				<ul>
-					<li>Such as the color transparent black will be returned as <span class="string">"rgba(0,0,0,0)"</span>.</li>
+					<li>Such as the color transparent black will be returned as <span class="str">"rgba(0,0,0,0)"</span>.</li>
 				</ul>
 				<li>A CanvasGradient object, the CanvasGradient object will be returned.</li>
 				<li>A CanvasPattern object, the CanvasPattern object will be returned.</li>
@@ -250,16 +250,16 @@ b {
 			<li>Parameters:</li>
 			<ul>
 				<li><span class="type">HTMLImageElement</span>, <span class="type">HTMLCanvasElement</span>, <span class="type">HTMLVideoElement</span> <span class="param">image</span> - What image to use as the pattern.</li>
-				<li><span class="type">String</span> <span class="param">repetition</span> - How to repeat the pattern, accepts either <span class="string">"repeat"</span>, <span class="string">"repeat-x"</span>, <span class="string">"repeat-y"</span>, or <span class="string">"no-repeat"</span>.</li>
+				<li><span class="type">String</span> <span class="param">repetition</span> - How to repeat the pattern, accepts either <span class="str">"repeat"</span>, <span class="str">"repeat-x"</span>, <span class="str">"repeat-y"</span>, or <span class="str">"no-repeat"</span>.</li>
 			</ul>
-			<li>The pattern can be repeated in the x direction with a repetition attribute of <span class="string">"repeat-x"</span>, the y direction with a repetition argument of <span class="string">"repeat-y"</span>, in both dimensions with <span class="string">"repeat"</span>, or in neither with <span class="string">"no-repeat"</span>.</li>
+			<li>The pattern can be repeated in the x direction with a repetition attribute of <span class="str">"repeat-x"</span>, the y direction with a repetition argument of <span class="str">"repeat-y"</span>, in both dimensions with <span class="str">"repeat"</span>, or in neither with <span class="str">"no-repeat"</span>.</li>
 			<li>If the repetition argument sent is not valid then a <span class="error">SYNTAX_ERR</span> is thrown.</li>
 			<li>Rendering of the pattern starts in the top left corner of the canvas, to move the pattern without repeating it a translation on the canvas should suffice.</li>
 			<li>If <span class="param">image</span> is neither an HTML image, canvas, or video, then a <span class="error">TYPE_MISMATCH_ERR</span> is thrown.</li>
 			<li>If <span class="param">image</span> has no image data then an <span class="error">INVALID_STATE_ERR</span> is thrown.</li>
-			<li>If <span class="param">image</span> is an image whose <span class="member">complete</span> attribute is <span class="boolean">false</span> then the method returns nothing and no error is thrown.</li>
-			<li>If <span class="param">image</span> is a video whose <span class="member">readyState</span> attribute is either <span class="string">"HAVE_NOTHING"</span> or <span class="string">"HAVE_METADATA"</span> then the method returns nothing and no error is thrown.</li>
-			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="number">0</span> then an <span class="error">INVALID_STATE_ERR</span> is thrown.</li>
+			<li>If <span class="param">image</span> is an image whose <span class="member">complete</span> attribute is <span class="bool">false</span> then the method returns nothing and no error is thrown.</li>
+			<li>If <span class="param">image</span> is a video whose <span class="member">readyState</span> attribute is either <span class="str">"HAVE_NOTHING"</span> or <span class="str">"HAVE_METADATA"</span> then the method returns nothing and no error is thrown.</li>
+			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="num">0</span> then an <span class="error">INVALID_STATE_ERR</span> is thrown.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -274,11 +274,11 @@ b {
 				<ul>
 					<li>Parameters:</li>
 					<ul>
-						<li><span class="type">Number</span> <span class="param">offset</span> - The offset of the color stop, between <span class="number">0</span> and <span class="number">1</span>.</li>
+						<li><span class="type">Number</span> <span class="param">offset</span> - The offset of the color stop, between <span class="num">0</span> and <span class="num">1</span>.</li>
 						<li><span class="type">String</span> <span class="param">color</span> - The color at that offset, must be a valid CSS color string.</li>
 					</ul>
 					<li>Used to add colored intervals to gradients, whether linear or radial.</li>
-					<li>If <span class="param">offset</span> is less than <span class="number">0</span>, greater than <span class="number">1</span>, <span class="number">Infinite</span>, or <span class="number">NaN</span>, then an <span class="error">INDEX_SIZE_ERR</span> is thrown.</li>
+					<li>If <span class="param">offset</span> is less than <span class="num">0</span>, greater than <span class="num">1</span>, <span class="num">Infinite</span>, or <span class="num">NaN</span>, then an <span class="error">INDEX_SIZE_ERR</span> is thrown.</li>
 					<li>If <span class="param">color</span> is not a valid CSS color string then a <span class="error">SYNTAX_ERR</span> is thrown.</li>
 				</ul>
 			</ul>
@@ -312,7 +312,7 @@ b {
 		<ul>
 			<li>Can be set to any positive, finite, non-zero number.</li>
 			<li>The width used when stroking shapes and paths.</li>
-			<li>Default value is <span class="number">1.0</span>.</li>
+			<li>Default value is <span class="num">1.0</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -324,21 +324,21 @@ b {
 		<ul>
 			<li>Possible values, any others are ignored.</li>
 			<ul>
-				<li><span class="string">"butt"</span></li>
-				<li><span class="string">"square"</span></li>
-				<li><span class="string">"round"</span></li>
+				<li><span class="str">"butt"</span></li>
+				<li><span class="str">"square"</span></li>
+				<li><span class="str">"round"</span></li>
 			</ul>
 			<li>Specifies how lines draw onto the canvas will be closed visually.</li>
 			<li>Values are case sensitive.</li>
-			<li>Default value is <span class="string">"butt"</span>.</li>
+			<li>Default value is <span class="str">"butt"</span>.</li>
 		</ul>
 	</ul>
 	<hr>
 	<table class="leftAlign" width="99%">
 		<tr>
-			<td width="33%">context.lineCap = <span class="string">"butt"</span></td>
-			<td width="33%">context.lineCap = <span class="string">"square"</span></td>
-			<td width="33%">context.lineCap = <span class="string">"round"</span></td>
+			<td width="33%">context.lineCap = <span class="str">"butt"</span></td>
+			<td width="33%">context.lineCap = <span class="str">"square"</span></td>
+			<td width="33%">context.lineCap = <span class="str">"round"</span></td>
 		</tr>
 		<tr>
 			<td width="33%"><img src="images/lineCapButt.gif"></td>
@@ -355,20 +355,20 @@ b {
 		<ul>
 			<li>Possible values, any others are ignored.</li>
 			<ul>
-				<li><span class="string">"bevel"</span></li>
-				<li><span class="string">"round"</span></li>
-				<li><span class="string">"miter"</span></li>
+				<li><span class="str">"bevel"</span></li>
+				<li><span class="str">"round"</span></li>
+				<li><span class="str">"miter"</span></li>
 			</ul>
 			<li>Specifies how lines drawn onto the canvas will meet visually.</li>
-			<li>Default value is <span class="string">"miter"</span>.</li>
+			<li>Default value is <span class="str">"miter"</span>.</li>
 		</ul>
 	</ul>
 	<hr>
 	<table class="leftAlign" width="99%">
 		<tr>
-			<td width="33%">context.lineJoin = <span class="string">"bevel"</span></td>
-			<td width="33%">context.lineJoin = <span class="string">"round"</span></td>
-			<td width="33%">context.lineJoin = <span class="string">"miter"</span></td>
+			<td width="33%">context.lineJoin = <span class="str">"bevel"</span></td>
+			<td width="33%">context.lineJoin = <span class="str">"round"</span></td>
+			<td width="33%">context.lineJoin = <span class="str">"miter"</span></td>
 		</tr>
 		<tr>
 			<td width="33%"><img src="images/lineJoinBevel.gif"></td>
@@ -384,8 +384,8 @@ b {
 		<li><span class="type">Number</span> context . <b>miterLimit</b></li>
 		<ul>
 			<li>Can be set to any positive, finite, non-zero number.</li>
-			<li>When <span class="member">lineJoin</span> is set to <span class="string">"miter"</span>, this value defines the maximum allowed ratio between the miter length to half the line width. If the length of the miter length exceeds the ratio then it will not be drawn.</li>
-			<li>Default value is <span class="number">10</span>.</li>
+			<li>When <span class="member">lineJoin</span> is set to <span class="str">"miter"</span>, this value defines the maximum allowed ratio between the miter length to half the line width. If the length of the miter length exceeds the ratio then it will not be drawn.</li>
+			<li>Default value is <span class="num">10</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -402,7 +402,7 @@ b {
 		<ul>
 			<li>Can be set to any valid CSS color string, any other values are ignored.</li>
 			<li>Defines what color the shadow drawn below stroked and filled shapes will be.</li>
-			<li>Default value is <span class="string">"rgba(0, 0, 0, 0.0)"</span>, transparent black.</li>
+			<li>Default value is <span class="str">"rgba(0, 0, 0, 0.0)"</span>, transparent black.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -414,7 +414,7 @@ b {
 		<ul>
 			<li>Offsets the shadow on the x axis.</li>
 			<li>Can be set to any finite number.</li>
-			<li>Default value is <span class="number">0</span>.</li>
+			<li>Default value is <span class="num">0</span>.</li>
 			<li>Is not affected by the <a href="#transformations">Transformation Matrix</a></li>
 		</ul>
 	</ul>
@@ -427,7 +427,7 @@ b {
 		<ul>
 			<li>Offsets the shadow on the y axis.</li>
 			<li>Can be set to any finite number.</li>
-			<li>Default value is <span class="number">0</span>.</li>
+			<li>Default value is <span class="num">0</span>.</li>
 			<li>Is not affected by the <a href="#transformations">Transformation Matrix</a></li>
 		</ul>
 	</ul>
@@ -440,7 +440,7 @@ b {
 		<ul>
 			<li>Can be set to any positive finite number.</li>
 			<li>Blurs shadows drawn below stroked or filled shapes.</li>
-			<li>Default value is <span class="number">0</span>.</li>
+			<li>Default value is <span class="num">0</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -521,7 +521,7 @@ b {
 				<li><span class="type">Number</span> <span class="param">width</span> - The width of the rectangle, must be greater than zero.</li>
 				<li><span class="type">Number</span> <span class="param">height</span> - The height of the rectangle, must be greater than zero.</li>
 			</ul>
-			<li>Sets pixels in the specified rectangle to a fully transparent black, <span class="string">"rgba(0, 0, 0, 0.0)"</span>.</li>
+			<li>Sets pixels in the specified rectangle to a fully transparent black, <span class="str">"rgba(0, 0, 0, 0.0)"</span>.</li>
 			<li>Does not affect the current path.</li>
 			<li>Affected by:</li>
 			<ul>
@@ -785,8 +785,8 @@ b {
 				<li><span class="type">Number</span> <span class="param">x</span> - The x value of the point to check.</li>
 				<li><span class="type">Number</span> <span class="param">y</span> - The y value of the point to check.</li>
 			</ul>
-			<li>Returns <span class="boolean">true</span> if the specified point is within the shape composed by the current path, false otherwise.</li>
-			<li>Returns false if any argument is <span class="number">Infinite</span> or <span class="number">NaN</span>.</li>
+			<li>Returns <span class="bool">true</span> if the specified point is within the shape composed by the current path, false otherwise.</li>
+			<li>Returns false if any argument is <span class="num">Infinite</span> or <span class="num">NaN</span>.</li>
 			<li>Points that lie on the path are considered to be within the path.</li>
 			<li>W3C specifies that the Non-Zero Winding Number Rule should be used to test if the point is within the shape.</li>
 		</ul>
@@ -803,11 +803,7 @@ b {
 	<br>
 	Within the Bespin text editor from Mozilla, measuring the height of the text is accomplished by measuring the width of a lowercase "m".
 	<br>
-	Within Firefox, measuring text takes almost as long as rendering it, try to avoid over-using it.
-	<br>
-	Opera does not currently support any text related properties or methods.
-	<br>
-	It seems that Chromium ignores the maxWidth argument.
+	Measuring text can be an intensive operation, sometimes taking as long as rendering text, try to avoid over-using it.
 </p>
 
 <a name="font"></a>
@@ -817,7 +813,7 @@ b {
 		<ul>
 			<li>Can be set to any valid CSS font string.</li>
 			<li>Specifies the font( and font size) to use when rendering text.</li>
-			<li>Default value is <span class="string">"10px sans-serif"</span>.</li>
+			<li>Default value is <span class="str">"10px sans-serif"</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -829,27 +825,27 @@ b {
 		<ul>
 			<li>Possible values, any others are ignored.</li>
 			<ul>
-				<li><span class="string">"start"</span> - The start of the text, which depends on the directionality of the canvas.</li>
-				<li><span class="string">"end"</span> - The end of the text, which depends on the directionality of the canvas.</li>
-				<li><span class="string">"left"</span> - The left side of the text.</li>
-				<li><span class="string">"right"</span> - The right side of the text.</li>
-				<li><span class="string">"center"</span> - The center of the text.</li>
+				<li><span class="str">"start"</span> - The start of the text, which depends on the directionality of the canvas.</li>
+				<li><span class="str">"end"</span> - The end of the text, which depends on the directionality of the canvas.</li>
+				<li><span class="str">"left"</span> - The left side of the text.</li>
+				<li><span class="str">"right"</span> - The right side of the text.</li>
+				<li><span class="str">"center"</span> - The center of the text.</li>
 			</ul>
-			<li>Default value is <span class="string">"start"</span>.</li>
+			<li>Default value is <span class="str">"start"</span>.</li>
 			<li>The possible values of textAlign change the horizontal position of the anchor used when drawing text.</li>
 
 			<li>In the images below the method fillText(centerX,centerY,"Some Text") was called across different textAlign values, the red dot indicates the anchor used to position the text.</li>
-			<li>Note that in these images the text directionality is ltr, if changed to rtl then the <span class="string">"start"</span> and <span class="string">"end"</span> values will produce the opposite effect.</li>
+			<li>Note that in these images the text directionality is ltr, if changed to rtl then the <span class="str">"start"</span> and <span class="str">"end"</span> values will produce the opposite effect.</li>
 		</ul>
 	</ul>
 	<hr>
 	<table class="leftAlign" width="100%">
 		<tr>
-			  <td width="20%">context.textAlign = <span class="string">"start"</span></td>
-			  <td width="20%">context.textAlign = <span class="string">"end"</span></td>
-			  <td width="20%">context.textAlign = <span class="string">"left"</span></td>
-			  <td width="20%">context.textAlign = <span class="string">"right"</span></td>
-			  <td width="20%">context.textAlign = <span class="string">"center"</span></td>
+			  <td width="20%">context.textAlign = <span class="str">"start"</span></td>
+			  <td width="20%">context.textAlign = <span class="str">"end"</span></td>
+			  <td width="20%">context.textAlign = <span class="str">"left"</span></td>
+			  <td width="20%">context.textAlign = <span class="str">"right"</span></td>
+			  <td width="20%">context.textAlign = <span class="str">"center"</span></td>
 		</tr>
 		<tr>
 			  <td width="20%"><img src="images/textAlignStart.gif"></td>
@@ -868,29 +864,29 @@ b {
 		<ul>
 			<li>Possible values, any others are ignored.</li>
 			<ul>
-				<li><span class="string">"top"</span> - The top of the em square.</li>
-				<li><span class="string">"hanging"</span> - The hanging baseline.</li>
-				<li><span class="string">"middle"</span> - The middle of the em square.</li>
-				<li><span class="string">"alphabetic"</span> - The alphabetic baseline.</li>
-				<li><span class="string">"ideographic"</span> - The ideographic baseline.</li>
-				<li><span class="string">"bottom"</span> - The bottom of the em square.</li>
+				<li><span class="str">"top"</span> - The top of the em square.</li>
+				<li><span class="str">"hanging"</span> - The hanging baseline.</li>
+				<li><span class="str">"middle"</span> - The middle of the em square.</li>
+				<li><span class="str">"alphabetic"</span> - The alphabetic baseline.</li>
+				<li><span class="str">"ideographic"</span> - The ideographic baseline.</li>
+				<li><span class="str">"bottom"</span> - The bottom of the em square.</li>
 			</ul>
-			<li>Default value is <span class="string">"alphabetic"</span>.</li>
+			<li>Default value is <span class="str">"alphabetic"</span>.</li>
 			<li>The possible textBaseline values change the vertical position of the anchor used when drawing text.</li>
 			<li>In the images below the method fillText(centerX,centerY,"Some Text") was called across different textBaseline values, the red dot indicates the anchor used to position the text.</li>
-			<li>Note that the <span class="string">"hanging"</span> option is positioned incorrectly, these images were extracted from a canvas element in Firefox when the hanging baseline was not yet implemented and was treated as <span class="string">"alphabetic"</span>.</li>
+			<li>Note that the <span class="str">"hanging"</span> option is positioned incorrectly, these images were extracted from a canvas element in Firefox when the hanging baseline was not yet implemented and was treated as <span class="str">"alphabetic"</span>.</li>
 			<img src="images/textBaselines.png">
 		</ul>
 	</ul>
 	<hr>
 	<table class="leftAlign" width="99%">
 		<tr>
-			  <td width="16.5%">context.textBaseline = <span class="string">"top"</span></td>
-			  <td width="16.5%">context.textBaseline = <span class="string">"hanging"</span></td>
-			  <td width="16.5%">context.textBaseline = <span class="string">"middle"</span></td>
-			  <td width="16.5%">context.textBaseline = <span class="string">"alphabetic"</span></td>
-			  <td width="16.5%">context.textBaseline = <span class="string">"ideographic"</span></td>
-			  <td width="16.5%">context.textBaseline = <span class="string">"bottom"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="str">"top"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="str">"hanging"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="str">"middle"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="str">"alphabetic"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="str">"ideographic"</span></td>
+			  <td width="16.5%">context.textBaseline = <span class="str">"bottom"</span></td>
 		</tr>
 		<tr>
 			  <td width="16.5%"><img src="images/textBaselineTop.gif"></td>
@@ -1057,9 +1053,9 @@ b {
 			<li>If the numeric arguments do not make sense then an <span class="error">INDEX_SIZE_ERR</span> is thrown and nothing is drawn.</li>
 			<li>If <span class="param">image</span> is neither an HTML image, canvas, or video, then a <span class="error">TYPE_MISMATCH_ERR</span> is thrown and nothing is drawn.</li>
 			<li>If <span class="param">image</span> has no image data then an <span class="error">INVALID_STATE_ERR</span> is thrown and nothing is drawn.</li>
-			<li>If <span class="param">image</span> is an image whose <span class="member">complete</span> attribute is <span class="boolean">false</span> then the method returns without drawing anything or throwing an error.</li>
-			<li>If <span class="param">image</span> is a video whose <span class="member">readyState</span> attribute is either <span class="string">"HAVE_NOTHING"</span> or <span class="string">"HAVE_METADATA"</span> then the method returns without drawing anything or throwing an error.</li>
-			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="number">0</span> then the method throws an <span class="error">INVALID_STATE_ERR</span> and nothing is drawn.</li>
+			<li>If <span class="param">image</span> is an image whose <span class="member">complete</span> attribute is <span class="bool">false</span> then the method returns without drawing anything or throwing an error.</li>
+			<li>If <span class="param">image</span> is a video whose <span class="member">readyState</span> attribute is either <span class="str">"HAVE_NOTHING"</span> or <span class="str">"HAVE_METADATA"</span> then the method returns without drawing anything or throwing an error.</li>
+			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="num">0</span> then the method throws an <span class="error">INVALID_STATE_ERR</span> and nothing is drawn.</li>
 			<li>Affected by:</li>
 			<ul>
 				<li><a href="#globalAlpha">context.globalAlpha</a></li>
@@ -1104,7 +1100,7 @@ b {
 			<li>Used to create new <a href="#ImageData" class="type">ImageData</a> objects.</li>
 			<li>New <a href="#ImageData" class="type">ImageData</a> objects will be filled with transparent black.</li>
 			<li>A <span class="error">TYPE_MISMATCH_ERR</span> is thrown if arguments are <span class="type">null</span>.</li>
-			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="number">Infinity</span> or <span class="number">NaN</span>.</li>
+			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="num">Infinity</span> or <span class="num">NaN</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -1122,7 +1118,7 @@ b {
 				<li><span class="type">Number</span> <span class="param">sh</span> - The height of the rectangle to get the image data from.</li>
 			</ul>
 			<li>Returns an <a href="#ImageData" class="type">ImageData</a> object holding pixel data from the specified rectangle.</li>
-			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="number">Infinity</span> or <span class="number">NaN</span>.</li>
+			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="num">Infinity</span> or <span class="num">NaN</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -1145,7 +1141,7 @@ b {
 			<li>Places the sent image data onto the canvas without any styling or compositing effects.</li>
 			<li>Pixels from the sent image data will only be placed onto the canvas if they also intersect with the dirty rectangle if it is provided.</li>
 			<li>If the first argument is not an <a href="#ImageData" class="type">ImageData</a> object then a <span class="error">TYPE_MISMATCH_ERR</span> is thrown.</li>
-			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="number">Infinity</span> or <span class="number">NaN</span>.</li>
+			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if an argument is either <span class="num">Infinity</span> or <span class="num">NaN</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -1248,7 +1244,7 @@ b {
 				<li><span class="type">Number</span> <span class="param">y</span> - The scale factor in the vertical direction.</li>
 			</ul>
 			<li>Scales the transformation matrix by the specified amount.</li>
-			<li>Such that a factor of <span class="number">1</span> will not change the scale on that dimension, whereas a factor of <span class="number">2</span> will double the scale.</li>
+			<li>Such that a factor of <span class="num">1</span> will not change the scale on that dimension, whereas a factor of <span class="num">2</span> will double the scale.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -1345,11 +1341,11 @@ b {
 	<ul>
 		<li><span class="type">Number</span> context . <b>globalAlpha</b></li>
 		<ul>
-			<li>Accepts any number between <span class="number">0</span> and <span class="number">1</span>.</li>
+			<li>Accepts any number between <span class="num">0</span> and <span class="num">1</span>.</li>
 			<li>On most renderings this number is applied to the pre-existing alpha component.</li>
-			<li>With a <span class="member">globalAlpha</span> of <span class="number">0</span> the color/image will be completely transparent, as if no drawing had been done.</li>
-			<li>With a <span class="member">globalAlpha</span> of <span class="number">1</span> the alpha component of that color/image will remain opaque.</li>
-			<li>Default value is <span class="number">1</span>.</li>
+			<li>With a <span class="member">globalAlpha</span> of <span class="num">0</span> the color/image will be completely transparent, as if no drawing had been done.</li>
+			<li>With a <span class="member">globalAlpha</span> of <span class="num">1</span> the alpha component of that color/image will remain opaque.</li>
+			<li>Default value is <span class="num">1</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -1361,37 +1357,37 @@ b {
 		<ul>
 			<li>Possible values, any others are ignored.</li>
 			<ul>
-				<li><span class="string">"source-over"</span> - The source is rendered above the destination.</li>
-				<li><span class="string">"source-in"</span> - The source is rendered where it intersects with the destination. Destination is discarded.</li>
-				<li><span class="string">"source-out"</span> - The source is rendered where it does not intersect with the destination. Destination is discarded.</li>
-				<li><span class="string">"source-atop"</span> - The source is rendered where it intersects with the destination.</li>
-				<li><span class="string">"destination-over"</span> - The destination is rendered above the source.</li>
-				<li><span class="string">"destination-in"</span> - The destination is rendered where it intersects with the source. Source is discarded.</li>
-				<li><span class="string">"destination-out"</span> - The destination is rendered where it does not intersect with the source. Source is discarded.</li>
-				<li><span class="string">"destination-atop"</span> - The destination is rendered where it intersects with the source.</li>
-				<li><span class="string">"lighter"</span> - Renders a sum of the source and destination images, with color values approaching 255 as a limit.</li>
-				<li><span class="string">"copy"</span> - Only the source is rendered, the destination is discarded, this will eliminate shadow effects.</li>
-				<li><span class="string">"xor"</span> - Exclusive OR of the images, pixels are discarded where they intersect with the source and destination.</li>
+				<li><span class="str">"source-over"</span> - The source is rendered above the destination.</li>
+				<li><span class="str">"source-in"</span> - The source is rendered where it intersects with the destination. Destination is discarded.</li>
+				<li><span class="str">"source-out"</span> - The source is rendered where it does not intersect with the destination. Destination is discarded.</li>
+				<li><span class="str">"source-atop"</span> - The source is rendered where it intersects with the destination.</li>
+				<li><span class="str">"destination-over"</span> - The destination is rendered above the source.</li>
+				<li><span class="str">"destination-in"</span> - The destination is rendered where it intersects with the source. Source is discarded.</li>
+				<li><span class="str">"destination-out"</span> - The destination is rendered where it does not intersect with the source. Source is discarded.</li>
+				<li><span class="str">"destination-atop"</span> - The destination is rendered where it intersects with the source.</li>
+				<li><span class="str">"lighter"</span> - Renders a sum of the source and destination images, with color values approaching 255 as a limit.</li>
+				<li><span class="str">"copy"</span> - Only the source is rendered, the destination is discarded, this will eliminate shadow effects.</li>
+				<li><span class="str">"xor"</span> - Exclusive OR of the images, pixels are discarded where they intersect with the source and destination.</li>
 			</ul>
 			<li>Specifies how new image data(the source) should be rendered onto the canvas in relation to the current image data(the destination).</li>
 			<li>In operations that deal with shapes and vector images, the image is first rendered onto a temporary bitmap and then treated as the source.</li>
-			<li>Default value is <span class="string">"source-over"</span>.</li>
+			<li>Default value is <span class="str">"source-over"</span>.</li>
 		</ul>
 	</ul>
 	<hr>
 	<table class="leftAlign" width="100%">
 		<tr>
-			<td class="string" width="9%">"source-over"</td>
-			<td class="string" width="9%">"source-in"</td>
-			<td class="string" width="9%">"source-out"</td>
-			<td class="string" width="9%">"source-atop"</td>
-			<td class="string" width="9%">"destination-over"</td>
-			<td class="string" width="9%">"destination-in"</td>
-			<td class="string" width="9%">"destination-out"</td>
-			<td class="string" width="9%">"destination-atop"</td>
-			<td class="string" width="9%">"lighter"</td>
-			<td class="string" width="9%">"copy"</td>
-			<td class="string" width="9%">"xor"</td>
+			<td class="str" width="9%">"source-over"</td>
+			<td class="str" width="9%">"source-in"</td>
+			<td class="str" width="9%">"source-out"</td>
+			<td class="str" width="9%">"source-atop"</td>
+			<td class="str" width="9%">"destination-over"</td>
+			<td class="str" width="9%">"destination-in"</td>
+			<td class="str" width="9%">"destination-out"</td>
+			<td class="str" width="9%">"destination-atop"</td>
+			<td class="str" width="9%">"lighter"</td>
+			<td class="str" width="9%">"copy"</td>
+			<td class="str" width="9%">"xor"</td>
 		</tr>
 		<tr>
 			<td width="9%"><img src="images/sourceOver.gif"></td>
