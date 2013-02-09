@@ -1,73 +1,7 @@
 <html>
 <head>
 	<title>Canvas 2d Context Documentation</title>
-	<style>
-
-blockquote {
-	border-style: solid;
-	border-width: 1px;
-	padding: 4px;
-	background-color: rgb(204, 255, 204);
-}
-
-hr {
-	width: 80%
-}
-
-td {
-	vertical-align: top;
-	padding: 4;
-}
-
-b {
-	letter-spacing: 1px;
-}
-
-.font10 {
-	font-size: 10pt;
-}
-
-.font14 {
-	font-size: 14pt;
-}
-
-.matrixCell {
-	border: 1px solid black;
-}
-
-.leftAlign{
-	text-align: center;
-}
-
-.bool {
-	color: navy;
-}
-
-.num {
-	color: sienna;
-}
-
-.str {
-	color: green;
-}
-
-.param {
-	color: purple;
-}
-
-.type {
-	color: gray;
-}
-
-.error {
-	color: red;
-}
-
-.member {
-	color: darkorange;
-}
-
-	</style>
+	<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <!-- TODO
@@ -90,8 +24,7 @@ b {
 
 <!-- Title -->
 
-<h1>Canvas 2d Context Documentation <span class="font10">by <a href="http://github.com/symaxian">Jonathon Reesor</a></span></h1>
-<h6>Last Edited: Tue, Sep 13, 2011</h6>
+<h1>Canvas 2d Context Documentation <span class="font10"><a href="https://github.com/symaxian/CanvasDocumentation">@ Github</a></span></h1>
 
 <!-- Description -->
 
@@ -112,9 +45,8 @@ b {
 <h3>Relevant Links</h3>
 <ul>
 	<li><a href="http://www.w3.org/TR/2dcontext/">HTML Canvas 2d Context - W3C Working Draft</a></li>
-	<li><a href="images/HTML5_Canvas_Cheat_Sheet.png">An Excellent HTML5 Canvas Cheat Sheet by Nihilogic</a></li>
-	<li><a href="http://www.quirksmode.org/">Quirksmode - Prime source for documentation on browser compatibilities and quirks.</a></li>
-	<li><a href="http://www.modernizr.com/">Modernizr - A great tool for detecting browser capabilities.</a></li>
+	<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">The Canvas Element - WHATWG Specification</a></li>
+	<li><a href="images/HTML5_Canvas_Cheat_Sheet.png">HTML5 Canvas Cheat Sheet by Nihilogic</a></li>
 </ul>
 
 <!-- Table Of Contents -->
@@ -237,7 +169,7 @@ b {
 			</ul>
 			<li>Returns a <a href="#CanvasGradient" class="type">CanvasGradient</a> object holding a radial gradient that stretches between the two specified points.</li>
 			<li>A <span class="error">NOT_SUPPORTED_ERR</span> is thrown if any numbers are not finite.</li>
-			<li>An <span class="error">INDEX_SIZE_ERR</span> is thrown if either radii are negative.</li>
+			<li>An <span class="error">IndexSizeError</span> exception is thrown if either radius is negative.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -253,13 +185,13 @@ b {
 				<li><span class="type">String</span> <span class="param">repetition</span> - How to repeat the pattern, accepts either <span class="str">"repeat"</span>, <span class="str">"repeat-x"</span>, <span class="str">"repeat-y"</span>, or <span class="str">"no-repeat"</span>.</li>
 			</ul>
 			<li>The pattern can be repeated in the x direction with a repetition attribute of <span class="str">"repeat-x"</span>, the y direction with a repetition argument of <span class="str">"repeat-y"</span>, in both dimensions with <span class="str">"repeat"</span>, or in neither with <span class="str">"no-repeat"</span>.</li>
-			<li>If the repetition argument sent is not valid then a <span class="error">SYNTAX_ERR</span> is thrown.</li>
+			<li>If the repetition argument sent is not valid then a <span class="error">SyntaxError</span> exception is thrown.</li>
 			<li>Rendering of the pattern starts in the top left corner of the canvas, to move the pattern without repeating it a translation on the canvas should suffice.</li>
 			<li>If <span class="param">image</span> is neither an HTML image, canvas, or video, then a <span class="error">TYPE_MISMATCH_ERR</span> is thrown.</li>
-			<li>If <span class="param">image</span> has no image data then an <span class="error">INVALID_STATE_ERR</span> is thrown.</li>
+			<li>If <span class="param">image</span> has no image data then an <span class="error">InvalidStateError</span> exception is thrown.</li>
 			<li>If <span class="param">image</span> is an image whose <span class="member">complete</span> attribute is <span class="bool">false</span> then the method returns nothing and no error is thrown.</li>
 			<li>If <span class="param">image</span> is a video whose <span class="member">readyState</span> attribute is either <span class="str">"HAVE_NOTHING"</span> or <span class="str">"HAVE_METADATA"</span> then the method returns nothing and no error is thrown.</li>
-			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="num">0</span> then an <span class="error">INVALID_STATE_ERR</span> is thrown.</li>
+			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="num">0</span> then an <span class="error">InvalidStateError</span> exception is thrown.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -278,8 +210,8 @@ b {
 						<li><span class="type">String</span> <span class="param">color</span> - The color at that offset, must be a valid CSS color string.</li>
 					</ul>
 					<li>Used to add colored intervals to gradients, whether linear or radial.</li>
-					<li>If <span class="param">offset</span> is less than <span class="num">0</span>, greater than <span class="num">1</span>, <span class="num">Infinite</span>, or <span class="num">NaN</span>, then an <span class="error">INDEX_SIZE_ERR</span> is thrown.</li>
-					<li>If <span class="param">color</span> is not a valid CSS color string then a <span class="error">SYNTAX_ERR</span> is thrown.</li>
+					<li>If <span class="param">offset</span> is less than <span class="num">0</span>, greater than <span class="num">1</span>, <span class="num">Infinite</span>, or <span class="num">NaN</span>, then an <span class="error">IndexSizeError</span> exception is thrown.</li>
+					<li>If <span class="param">color</span> is not a valid CSS color string then a <span class="error">SyntaxError</span> exception is thrown.</li>
 				</ul>
 			</ul>
 			<li>Returned by <span class="member">context.createLinearGradient()</span> or <span class="member">context.createRadialGradient()</span>.</li>
@@ -295,7 +227,7 @@ b {
 		<ul>
 			<li>Cannot be modified, has no public properties or methods.</li>
 			<li>Returned by <span class="member">context.createPattern()</span>.</li>
-			<li>Holds a pattern for use as the context's <span class="member">fillStyle</span> or <span class="member">strokeStyle</span>.</li>
+			<li>Holds a pattern that can be set as the context's <span class="member">fillStyle</span> or <span class="member">strokeStyle</span>.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -386,6 +318,33 @@ b {
 			<li>Can be set to any positive, finite, non-zero number.</li>
 			<li>When <span class="member">lineJoin</span> is set to <span class="str">"miter"</span>, this value defines the maximum allowed ratio between the miter length to half the line width. If the length of the miter length exceeds the ratio then it will not be drawn.</li>
 			<li>Default value is <span class="num">10</span>.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="setLineDash"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>setLineDash(<span class="param">segments</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Array</span> <span class="param">segments</span> - The lengths of the "on" and "off" segments of a dashed line.</li>
+			</ul>
+			<li>Sets the context's line dash property.</li>
+			<li>Defines how to draw lines as dashed, consisting of "on" and "off" segments.</li>
+			<li>When rendering lines as dashed, the initial state of the line is "off".</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="getLineDash"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Array</span> context . <b>getLineDash()</b></li>
+		<ul>
+			<li>Returns the context's line dash property.</li>
+			<li>The line dash property is initially an empty array.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -538,12 +497,29 @@ b {
 <h2>5. Paths</h2>
 
 <p>
-	The 2d context for canvas is designed to make heavy use of paths, complex shapes made up of any number of straight lines and arcs.
+	The 2d context for canvas is designed to make heavy use of paths, geometric shapes made up of straight lines and varying types of curves.
 	<br>
-	Within a correct canvas implementation, the canvas always contains a list of sub-paths that make up the current path.
+	The canvas always contains a list of sub-paths that make up the current path.
 	<br>
-	The path's current point is the ending point of the last segment.
+	The path's current point is the ending point of the last sub-path.
 </p>
+
+<a name="fillRule"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>fillRule</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li><span class="str">"nonzero"</span></li>
+				<li><span class="str">"evenodd"</span></li>
+			</ul>
+			<li>Defines the algorithm used for determining whether a point lies within a path or not.</li>
+			<li>Default value is <span class="str">"nonzero"</span>.</li>
+			<li>See the <a href="http://en.wikipedia.org/wiki/Nonzero-rule">Wikipedia entry</a> for the non-zero rule.</li>
+		</ul>
+	</ul>
+</blockquote>
 
 <a name="beginPath()"></a>
 <blockquote>
@@ -612,7 +588,8 @@ b {
 			<ul>
 				<li>The <a href="#transformations">Transformation Matrix</a></li>
 			</ul>
-			<li>Negative values for the radius raise an <span class="error">INDEX_SIZE_ERR</span>.</li>
+			<li>Negative values for the radius raise an <span class="error">IndexSizeError</span> exception.</li>
+			<li>See DBP Consulting's <a href="http://www.dbp-consulting.com/tutorials/canvas/CanvasArcTo.html">explanation</a> of this method.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -637,7 +614,33 @@ b {
 			<ul>
 				<li>The <a href="#transformations">Transformation Matrix</a></li>
 			</ul>
-			<li>Negative values for the radius raise an <span class="error">INDEX_SIZE_ERR</span>.</li>
+			<li>Negative values for the radius raise an <span class="error">IndexSizeError</span> exception.</li>
+		</ul>
+	</ul>
+</blockquote>
+
+<a name="ellipse()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>ellipse(<span class="param">x</span>, <span class="param">y</span>, <span class="param">radiusX</span>, <span class="param">radiusY</span>, <span class="param">rotation</span>, <span class="param">startAngle</span>, <span class="param">endAngle</span>, <span class="param">anticlockwise</span>)</b></li>
+		<ul>
+			<li>Parameters:</li>
+			<ul>
+				<li><span class="type">Number</span> <span class="param">x</span> - The x value of the ellipses center.</li>
+				<li><span class="type">Number</span> <span class="param">y</span> - The y value of the ellipses center.</li>
+				<li><span class="type">Number</span> <span class="param">radiusX</span> - The radius of the ellipse in the x dimension.</li>
+				<li><span class="type">Number</span> <span class="param">radiusY</span> - The radius of the ellipse in the y dimension.</li>
+				<li><span class="type">Number</span> <span class="param">rotation</span> - The rotation of the ellipse?</li>
+				<li><span class="type">Number</span> <span class="param">startAngle</span> - The angle that the ellipse begins at, in radians.</li>
+				<li><span class="type">Number</span> <span class="param">endAngle</span> - The angle that the ellipse ends at, in radians.</li>
+				<li><span class="type">boolean</span> <span class="param">anticlockwise</span> - If true then the ellipse will be drawn in a counter-clockwise manner.</li>
+			</ul>
+			<li>Adds an ellipse to the current path.</li>
+			<li>Affected by:</li>
+			<ul>
+				<li>The <a href="#transformations">Transformation Matrix</a></li>
+			</ul>
+			<li>Negative values for either radius raise an <span class="error">IndexSizeError</span> exception.</li>
 		</ul>
 	</ul>
 </blockquote>
@@ -775,6 +778,16 @@ b {
 	</ul>
 </blockquote>
 
+<a name="resetClip()"></a>
+<blockquote>
+	<ul>
+		<li>context . <b>resetClip()</b></li>
+		<ul>
+			<li>Resets the clipping region to a rectangle the size of the canvas.</li>
+		</ul>
+	</ul>
+</blockquote>
+
 <a name="isPointInPath()"></a>
 <blockquote>
 	<ul>
@@ -897,6 +910,24 @@ b {
 			  <td width="16.5%"><img src="images/textBaselineBottom.gif"></td>
 		</tr>
 	</table>
+</blockquote>
+
+<a name="direction"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">String</span> context . <b>direction</b></li>
+		<ul>
+			<li>Possible values, any others are ignored.</li>
+			<ul>
+				<li><span class="str">"ltr"</span> - Treat input to the text preparation algorithm as left-to-right text.</li>
+				<li><span class="str">"rtl"</span> - Treat input to the text preparation algorithm as right-to-left text.</li>
+				<li><span class="str">"inherit"</span> - Default to the directionality of the canvas element or Document as appropriate.</li>
+			</ul>
+			<li>Default value is <span class="str">"inherit"</span>.</li>
+			<li>The direction in which text is rendered in.</li>
+		</ul>
+	</ul>
+	<hr>
 </blockquote>
 
 <a name="fillText()"></a>
@@ -1050,12 +1081,12 @@ b {
 		<ul>
 			<li>It is up to the browser to determine what algorithm will be used to scale the image.</li>
 			<li>Note that it is possible to draw a canvas onto iself, the image on the canvas is copied before being rendered back onto the canvas.</li>
-			<li>If the numeric arguments do not make sense then an <span class="error">INDEX_SIZE_ERR</span> is thrown and nothing is drawn.</li>
+			<li>If the numeric arguments do not make sense then an <span class="error">IndexSizeError</span> exception is thrown and nothing is drawn.</li>
 			<li>If <span class="param">image</span> is neither an HTML image, canvas, or video, then a <span class="error">TYPE_MISMATCH_ERR</span> is thrown and nothing is drawn.</li>
-			<li>If <span class="param">image</span> has no image data then an <span class="error">INVALID_STATE_ERR</span> is thrown and nothing is drawn.</li>
+			<li>If <span class="param">image</span> has no image data then an <span class="error">InvalidStateError</span> exception is thrown and nothing is drawn.</li>
 			<li>If <span class="param">image</span> is an image whose <span class="member">complete</span> attribute is <span class="bool">false</span> then the method returns without drawing anything or throwing an error.</li>
 			<li>If <span class="param">image</span> is a video whose <span class="member">readyState</span> attribute is either <span class="str">"HAVE_NOTHING"</span> or <span class="str">"HAVE_METADATA"</span> then the method returns without drawing anything or throwing an error.</li>
-			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="num">0</span> then the method throws an <span class="error">INVALID_STATE_ERR</span> and nothing is drawn.</li>
+			<li>If <span class="param">image</span> is a canvas element that has either a <span class="member">width</span> or <span class="member">height</span> of <span class="num">0</span> then an <span class="error">InvalidStateError</span> exception is thrown and nothing is drawn.</li>
 			<li>Affected by:</li>
 			<ul>
 				<li><a href="#globalAlpha">context.globalAlpha</a></li>
@@ -1403,6 +1434,17 @@ b {
 			<td width="9%"><img src="images/xor.gif"></td>
 		</tr>
 	</table>
+</blockquote>
+
+<a name="enableImageSmoothing"></a>
+<blockquote>
+	<ul>
+		<li><span class="type">Boolean</span> context . <b>enableImageSmoothing</b></li>
+		<ul>
+			<li>Enables the smoothing of images when rendering images or patterns to the canvas if their pixels do not line up.</li>
+			<li>Default value is <span class="bool">true</span>.</li>
+		</ul>
+	</ul>
 </blockquote>
 
 <!-- Drawing Model -->
